@@ -1,0 +1,3229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Belajar Bahasa Jepang Lengkap</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial, sans-serif;
+    }
+
+    body{
+        background:#f3f4ff;
+        color:#222;
+    }
+
+    header{
+        background:linear-gradient(90deg,#4f46e5,#7c3aed);
+        color:white;
+        padding:25px;
+        text-align:center;
+    }
+
+    nav{
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+        justify-content:center;
+        padding:15px;
+        background:white;
+        position:sticky;
+        top:0;
+        box-shadow:0 2px 5px rgba(0,0,0,0.1);
+        z-index:999;
+    }
+
+    nav button{
+        padding:10px 15px;
+        border:none;
+        border-radius:10px;
+        background:#6366f1;
+        color:white;
+        cursor:pointer;
+        transition:0.3s;
+    }
+
+    nav button:hover{
+        background:#4338ca;
+    }
+
+    section{
+        display:none;
+        padding:25px;
+    }
+
+    section.active{
+        display:block;
+    }
+
+    .card{
+        background:white;
+        padding:20px;
+        border-radius:15px;
+        margin-bottom:20px;
+        box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h2{
+        color:#4f46e5;
+        margin-bottom:15px;
+    }
+
+    h3{
+        margin-bottom:10px;
+        color:#4338ca;
+    }
+
+    table{
+        width:100%;
+        border-collapse:collapse;
+        margin-top:15px;
+    }
+
+    th, td{
+        border:1px solid #ddd;
+        padding:12px;
+        text-align:center;
+        font-size:18px;
+    }
+
+    th{
+        background:#6366f1;
+        color:white;
+    }
+
+    .jp{
+        font-size:28px;
+        font-weight:bold;
+    }
+
+    .explain{
+        line-height:1.8;
+        margin-top:10px;
+    }
+
+    .quiz-box{
+        max-width:500px;
+        margin:auto;
+        background:white;
+        padding:20px;
+        border-radius:15px;
+        box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .quiz-box button{
+        width:100%;
+        padding:12px;
+        margin-top:10px;
+        border:none;
+        border-radius:10px;
+        background:#4f46e5;
+        color:white;
+        cursor:pointer;
+    }
+
+    .quiz-box button:hover{
+        background:#4338ca;
+    }
+
+    .result{
+        margin-top:15px;
+        font-weight:bold;
+    }
+
+    footer{
+        text-align:center;
+        background:#1e1b4b;
+        color:white;
+        padding:20px;
+        margin-top:30px;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🇯🇵 Belajar Bahasa Jepang Lengkap</h1>
+    <p>Hiragana • Katakana • Dakuten • Handakuten • Yoon • Quiz • Kanji • Kosakata</p>
+</header>
+
+<nav>
+    <button onclick="showSection('hiragana')">Hiragana</button>
+    <button onclick="showSection('katakana')">Katakana</button>
+    <button onclick="showSection('dakuten')">Dakuten</button>
+    <button onclick="showSection('handakuten')">Handakuten</button>
+    <button onclick="showSection('yoon')">Yoon</button>
+    <button onclick="showSection('quiz')">Quiz</button>
+    <button onclick="showSection('vocab')">Kosakata</button>
+    <button onclick="showSection('kanji')">Kanji</button>
+    <button onclick="showSection('grammar')">Pola Kalimat</button>
+    <button onclick="showSection('particle')">Partikel</button>
+</nav>
+
+<!-- HIRAGANA -->
+<section id="hiragana" class="active">
+
+    <h2>📘 Hiragana</h2>
+
+    <div class="card">
+        <h3>Apa itu Hiragana?</h3>
+
+        <p class="explain">
+            Hiragana adalah huruf dasar bahasa Jepang yang digunakan untuk:
+        </p>
+
+        <ul style="margin-left:20px; margin-top:10px; line-height:2;">
+            <li>Menulis kata asli Jepang</li>
+            <li>Partikel grammar</li>
+            <li>Akhiran kata kerja dan kata sifat</li>
+            <li>Furigana (cara baca kanji)</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>Tabel Hiragana Dasar</h3>
+
+        <table>
+            <tr>
+                <th>A</th>
+                <th>I</th>
+                <th>U</th>
+                <th>E</th>
+                <th>O</th>
+            </tr>
+
+            <tr>
+                <td><span class="jp">あ</span><br>a</td>
+                <td><span class="jp">い</span><br>i</td>
+                <td><span class="jp">う</span><br>u</td>
+                <td><span class="jp">え</span><br>e</td>
+                <td><span class="jp">お</span><br>o</td>
+            </tr>
+
+            <tr>
+                <td><span class="jp">か</span><br>ka</td>
+                <td><span class="jp">き</span><br>ki</td>
+                <td><span class="jp">く</span><br>ku</td>
+                <td><span class="jp">け</span><br>ke</td>
+                <td><span class="jp">こ</span><br>ko</td>
+            </tr>
+
+            <tr>
+                <td><span class="jp">さ</span><br>sa</td>
+                <td><span class="jp">し</span><br>shi</td>
+                <td><span class="jp">す</span><br>su</td>
+                <td><span class="jp">せ</span><br>se</td>
+                <td><span class="jp">そ</span><br>so</td>
+            </tr>
+
+            <tr>
+                <td><span class="jp">た</span><br>ta</td>
+                <td><span class="jp">ち</span><br>chi</td>
+                <td><span class="jp">つ</span><br>tsu</td>
+                <td><span class="jp">て</span><br>te</td>
+                <td><span class="jp">と</span><br>to</td>
+            </tr>
+
+            <tr>
+                <td><span class="jp">な</span><br>na</td>
+                <td><span class="jp">に</span><br>ni</td>
+                <td><span class="jp">ぬ</span><br>nu</td>
+                <td><span class="jp">ね</span><br>ne</td>
+                <td><span class="jp">の</span><br>no</td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+<!-- KATAKANA -->
+<section id="katakana">
+
+    <h2>📗 Katakana</h2>
+
+    <div class="card">
+        <h3>Apa itu Katakana?</h3>
+
+        <p class="explain">
+            Katakana digunakan untuk:
+        </p>
+
+        <ul style="margin-left:20px; margin-top:10px; line-height:2;">
+            <li>Kata serapan asing</li>
+            <li>Nama luar negeri</li>
+            <li>Efek suara</li>
+            <li>Penekanan kata</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>Tabel Katakana Dasar</h3>
+
+        <table>
+            <tr>
+                <th>A</th>
+                <th>I</th>
+                <th>U</th>
+                <th>E</th>
+                <th>O</th>
+            </tr>
+
+            <tr>
+                <td><span class="jp">ア</span><br>a</td>
+                <td><span class="jp">イ</span><br>i</td>
+                <td><span class="jp">ウ</span><br>u</td>
+                <td><span class="jp">エ</span><br>e</td>
+                <td><span class="jp">オ</span><br>o</td>
+            </tr>
+
+            <tr>
+                <td><span class="jp">カ</span><br>ka</td>
+                <td><span class="jp">キ</span><br>ki</td>
+                <td><span class="jp">ク</span><br>ku</td>
+                <td><span class="jp">ケ</span><br>ke</td>
+                <td><span class="jp">コ</span><br>ko</td>
+            </tr>
+
+            <tr>
+                <td><span class="jp">サ</span><br>sa</td>
+                <td><span class="jp">シ</span><br>shi</td>
+                <td><span class="jp">ス</span><br>su</td>
+                <td><span class="jp">セ</span><br>se</td>
+                <td><span class="jp">ソ</span><br>so</td>
+            </tr>
+
+            <tr>
+                <td><span class="jp">タ</span><br>ta</td>
+                <td><span class="jp">チ</span><br>chi</td>
+                <td><span class="jp">ツ</span><br>tsu</td>
+                <td><span class="jp">テ</span><br>te</td>
+                <td><span class="jp">ト</span><br>to</td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+<!-- DAKUTEN -->
+<section id="dakuten">
+
+    <h2>🔵 Dakuten (゛)</h2>
+
+    <div class="card">
+        <h3>Apa itu Dakuten?</h3>
+
+        <p class="explain">
+            Dakuten adalah tanda petik dua kecil (゛) yang mengubah bunyi huruf.
+        </p>
+
+        <table>
+            <tr>
+                <th>Asli</th>
+                <th>Menjadi</th>
+                <th>Bunyi</th>
+            </tr>
+
+            <tr>
+                <td>か</td>
+                <td>が</td>
+                <td>ga</td>
+            </tr>
+
+            <tr>
+                <td>さ</td>
+                <td>ざ</td>
+                <td>za</td>
+            </tr>
+
+            <tr>
+                <td>た</td>
+                <td>だ</td>
+                <td>da</td>
+            </tr>
+
+            <tr>
+                <td>は</td>
+                <td>ば</td>
+                <td>ba</td>
+            </tr>
+        </table>
+
+        <p class="explain">
+            Contoh:
+            <br><br>
+            か → ka
+            <br>
+            が → ga
+        </p>
+    </div>
+
+</section>
+
+<!-- HANDAKUTEN -->
+<section id="handakuten">
+
+    <h2>🟠 Handakuten (゜)</h2>
+
+    <div class="card">
+
+        <h3>Apa itu Handakuten?</h3>
+
+        <p class="explain">
+            Handakuten adalah lingkaran kecil (゜) yang mengubah bunyi H menjadi P.
+        </p>
+
+        <table>
+            <tr>
+                <th>Asli</th>
+                <th>Menjadi</th>
+                <th>Bunyi</th>
+            </tr>
+
+            <tr>
+                <td>は</td>
+                <td>ぱ</td>
+                <td>pa</td>
+            </tr>
+
+            <tr>
+                <td>ひ</td>
+                <td>ぴ</td>
+                <td>pi</td>
+            </tr>
+
+            <tr>
+                <td>ふ</td>
+                <td>ぷ</td>
+                <td>pu</td>
+            </tr>
+
+            <tr>
+                <td>へ</td>
+                <td>ぺ</td>
+                <td>pe</td>
+            </tr>
+
+            <tr>
+                <td>ほ</td>
+                <td>ぽ</td>
+                <td>po</td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+<!-- YOON -->
+<section id="yoon">
+
+    <h2>🟣 Yoon (Gabungan Huruf)</h2>
+
+    <div class="card">
+
+        <h3>Apa itu Yoon?</h3>
+
+        <p class="explain">
+            Yoon adalah gabungan huruf yang memakai:
+            <br><br>
+            き、し、ち、に、ひ、み、り + や/ゆ/よ kecil
+        </p>
+
+        <table>
+            <tr>
+                <th>Gabungan</th>
+                <th>Bacaan</th>
+            </tr>
+
+            <tr>
+                <td>きゃ</td>
+                <td>kya</td>
+            </tr>
+
+            <tr>
+                <td>きゅ</td>
+                <td>kyu</td>
+            </tr>
+
+            <tr>
+                <td>きょ</td>
+                <td>kyo</td>
+            </tr>
+
+            <tr>
+                <td>しゃ</td>
+                <td>sha</td>
+            </tr>
+
+            <tr>
+                <td>しゅ</td>
+                <td>shu</td>
+            </tr>
+
+            <tr>
+                <td>しょ</td>
+                <td>sho</td>
+            </tr>
+
+            <tr>
+                <td>ちゃ</td>
+                <td>cha</td>
+            </tr>
+
+            <tr>
+                <td>ちゅ</td>
+                <td>chu</td>
+            </tr>
+
+            <tr>
+                <td>ちょ</td>
+                <td>cho</td>
+            </tr>
+        </table>
+
+    </div>
+
+</section>
+
+<!-- GANTI BAGIAN SECTION QUIZ YANG LAMA MENJADI INI -->
+
+<section id="quiz">
+
+    <h2>🎮 Quiz Harian</h2>
+
+    <div class="quiz-box">
+
+        <h3 id="question">
+            Loading Quiz...
+        </h3>
+
+        <div id="answers"></div>
+
+        <div class="result" id="result"></div>
+
+        <div style="margin-top:20px;">
+
+            <h3>🏆 Achievement</h3>
+
+            <p id="achievement">
+                Title: Beginner
+            </p>
+
+            <p id="scoreText">
+                Total Quiz Benar: 0
+            </p>
+
+        </div>
+
+        <div style="
+            margin-top:20px;
+            background:#eef2ff;
+            padding:15px;
+            border-radius:10px;
+        ">
+
+            <b>📅 Daily Quiz</b>
+
+            <p style="margin-top:10px;">
+                Quiz akan otomatis berubah setiap hari.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- KOSAKATA -->
+
+<section id="vocab">
+
+    <h2>📚 Kosakata Jepang</h2>
+
+    <div class="card">
+
+        <table>
+
+            <tr>
+                <th>No</th>
+                <th>Jepang</th>
+                <th>Romaji</th>
+                <th>Arti</th>
+            </tr>
+
+            <tr><td>1</td><td>猫</td><td>neko</td><td>Kucing</td></tr>
+            <tr><td>2</td><td>犬</td><td>inu</td><td>Anjing</td></tr>
+            <tr><td>3</td><td>学校</td><td>gakkou</td><td>Sekolah</td></tr>
+            <tr><td>4</td><td>先生</td><td>sensei</td><td>Guru</td></tr>
+            <tr><td>5</td><td>友達</td><td>tomodachi</td><td>Teman</td></tr>
+            <tr><td>6</td><td>水</td><td>mizu</td><td>Air</td></tr>
+            <tr><td>7</td><td>火</td><td>hi</td><td>Api</td></tr>
+            <tr><td>8</td><td>山</td><td>yama</td><td>Gunung</td></tr>
+            <tr><td>9</td><td>川</td><td>kawa</td><td>Sungai</td></tr>
+            <tr><td>10</td><td>空</td><td>sora</td><td>Langit</td></tr>
+            <tr><td>11</td><td>本</td><td>hon</td><td>Buku</td></tr>
+            <tr><td>12</td><td>車</td><td>kuruma</td><td>Mobil</td></tr>
+            <tr><td>13</td><td>電車</td><td>densha</td><td>Kereta</td></tr>
+            <tr><td>14</td><td>雨</td><td>ame</td><td>Hujan</td></tr>
+            <tr><td>15</td><td>雪</td><td>yuki</td><td>Salju</td></tr>
+            <tr><td>16</td><td>海</td><td>umi</td><td>Laut</td></tr>
+            <tr><td>17</td><td>食べる</td><td>taberu</td><td>Makan</td></tr>
+            <tr><td>18</td><td>飲む</td><td>nomu</td><td>Minum</td></tr>
+            <tr><td>19</td><td>行く</td><td>iku</td><td>Pergi</td></tr>
+            <tr><td>20</td><td>見る</td><td>miru</td><td>Melihat</td></tr>
+            <tr><td>21</td><td>聞く</td><td>kiku</td><td>Mendengar</td></tr>
+            <tr><td>22</td><td>話す</td><td>hanasu</td><td>Berbicara</td></tr>
+            <tr><td>23</td><td>読む</td><td>yomu</td><td>Membaca</td></tr>
+            <tr><td>24</td><td>書く</td><td>kaku</td><td>Menulis</td></tr>
+            <tr><td>25</td><td>寝る</td><td>neru</td><td>Tidur</td></tr>
+            <tr><td>26</td><td>起きる</td><td>okiru</td><td>Bangun</td></tr>
+            <tr><td>27</td><td>買う</td><td>kau</td><td>Membeli</td></tr>
+            <tr><td>28</td><td>売る</td><td>uru</td><td>Menjual</td></tr>
+            <tr><td>29</td><td>大きい</td><td>ookii</td><td>Besar</td></tr>
+            <tr><td>30</td><td>小さい</td><td>chiisai</td><td>Kecil</td></tr>
+            <tr><td>31</td><td>新しい</td><td>atarashii</td><td>Baru</td></tr>
+            <tr><td>32</td><td>古い</td><td>furui</td><td>Tua</td></tr>
+            <tr><td>33</td><td>白い</td><td>shiroi</td><td>Putih</td></tr>
+            <tr><td>34</td><td>黒い</td><td>kuroi</td><td>Hitam</td></tr>
+            <tr><td>35</td><td>赤い</td><td>akai</td><td>Merah</td></tr>
+            <tr><td>36</td><td>青い</td><td>aoi</td><td>Biru</td></tr>
+            <tr><td>37</td><td>一</td><td>ichi</td><td>Satu</td></tr>
+            <tr><td>38</td><td>二</td><td>ni</td><td>Dua</td></tr>
+            <tr><td>39</td><td>三</td><td>san</td><td>Tiga</td></tr>
+            <tr><td>40</td><td>四</td><td>yon</td><td>Empat</td></tr>
+            <tr><td>41</td><td>五</td><td>go</td><td>Lima</td></tr>
+            <tr><td>42</td><td>六</td><td>roku</td><td>Enam</td></tr>
+            <tr><td>43</td><td>七</td><td>nana</td><td>Tujuh</td></tr>
+            <tr><td>44</td><td>八</td><td>hachi</td><td>Delapan</td></tr>
+            <tr><td>45</td><td>九</td><td>kyuu</td><td>Sembilan</td></tr>
+            <tr><td>46</td><td>十</td><td>juu</td><td>Sepuluh</td></tr>
+            <tr><td>47</td><td>朝</td><td>asa</td><td>Pagi</td></tr>
+            <tr><td>48</td><td>昼</td><td>hiru</td><td>Siang</td></tr>
+            <tr><td>49</td><td>夜</td><td>yoru</td><td>Malam</td></tr>
+            <tr><td>50</td><td>時間</td><td>jikan</td><td>Waktu</td></tr>
+            <tr><td>51</td><td>今日</td><td>kyou</td><td>Hari ini</td></tr>
+            <tr><td>52</td><td>明日</td><td>ashita</td><td>Besok</td></tr>
+            <tr><td>53</td><td>昨日</td><td>kinou</td><td>Kemarin</td></tr>
+            <tr><td>54</td><td>名前</td><td>namae</td><td>Nama</td></tr>
+            <tr><td>55</td><td>日本</td><td>nihon</td><td>Jepang</td></tr>
+            <tr><td>56</td><td>学生</td><td>gakusei</td><td>Siswa</td></tr>
+            <tr><td>57</td><td>大学</td><td>daigaku</td><td>Universitas</td></tr>
+            <tr><td>58</td><td>先生</td><td>sensei</td><td>Guru</td></tr>
+            <tr><td>59</td><td>家族</td><td>kazoku</td><td>Keluarga</td></tr>
+            <tr><td>60</td><td>部屋</td><td>heya</td><td>Kamar</td></tr>
+            <tr><td>61</td><td>部屋</td><td>heya</td><td>Kamar</td></tr>
+            <tr><td>62</td><td>家</td><td>ie</td><td>Rumah</td></tr>
+            <tr><td>63</td><td>窓</td><td>mado</td><td>Jendela</td></tr>
+            <tr><td>64</td><td>ドア</td><td>doa</td><td>Pintu</td></tr>
+            <tr><td>65</td><td>机</td><td>tsukue</td><td>Meja</td></tr>
+            <tr><td>66</td><td>椅子</td><td>isu</td><td>Kursi</td></tr>
+            <tr><td>67</td><td>電話</td><td>denwa</td><td>Telepon</td></tr>
+            <tr><td>68</td><td>時計</td><td>tokei</td><td>Jam</td></tr>
+            <tr><td>69</td><td>鞄</td><td>kaban</td><td>Tas</td></tr>
+            <tr><td>70</td><td>靴</td><td>kutsu</td><td>Sepatu</td></tr>
+            <tr><td>71</td><td>服</td><td>fuku</td><td>Baju</td></tr>
+            <tr><td>72</td><td>帽子</td><td>boushi</td><td>Topi</td></tr>
+            <tr><td>73</td><td>眼鏡</td><td>megane</td><td>Kacamata</td></tr>
+            <tr><td>74</td><td>傘</td><td>kasa</td><td>Payung</td></tr>
+            <tr><td>75</td><td>薬</td><td>kusuri</td><td>Obat</td></tr>
+            <tr><td>76</td><td>病院</td><td>byouin</td><td>Rumah Sakit</td></tr>
+            <tr><td>77</td><td>医者</td><td>isha</td><td>Dokter</td></tr>
+            <tr><td>78</td><td>店</td><td>mise</td><td>Toko</td></tr>
+            <tr><td>79</td><td>銀行</td><td>ginkou</td><td>Bank</td></tr>
+            <tr><td>80</td><td>郵便局</td><td>yuubinkyoku</td><td>Kantor Pos</td></tr>
+            <tr><td>81</td><td>道</td><td>michi</td><td>Jalan</td></tr>
+            <tr><td>82</td><td>橋</td><td>hashi</td><td>Jembatan</td></tr>
+            <tr><td>83</td><td>公園</td><td>kouen</td><td>Taman</td></tr>
+            <tr><td>84</td><td>駅前</td><td>ekimae</td><td>Depan Stasiun</td></tr>
+            <tr><td>85</td><td>旅行</td><td>ryokou</td><td>Perjalanan</td></tr>
+            <tr><td>86</td><td>飛行機</td><td>hikouki</td><td>Pesawat</td></tr>
+            <tr><td>87</td><td>自転車</td><td>jitensha</td><td>Sepeda</td></tr>
+            <tr><td>88</td><td>地下鉄</td><td>chikatetsu</td><td>Kereta Bawah Tanah</td></tr>
+            <tr><td>89</td><td>切符</td><td>kippu</td><td>Tiket</td></tr>
+            <tr><td>90</td><td>地図</td><td>chizu</td><td>Peta</td></tr>
+            <tr><td>91</td><td>料理</td><td>ryouri</td><td>Masakan</td></tr>
+            <tr><td>92</td><td>朝ご飯</td><td>asagohan</td><td>Sarapan</td></tr>
+            <tr><td>93</td><td>昼ご飯</td><td>hirugohan</td><td>Makan Siang</td></tr>
+            <tr><td>94</td><td>晩ご飯</td><td>bangohan</td><td>Makan Malam</td></tr>
+            <tr><td>95</td><td>肉</td><td>niku</td><td>Daging</td></tr>
+            <tr><td>96</td><td>魚</td><td>sakana</td><td>Ikan</td></tr>
+            <tr><td>97</td><td>野菜</td><td>yasai</td><td>Sayur</td></tr>
+            <tr><td>98</td><td>果物</td><td>kudamono</td><td>Buah</td></tr>
+            <tr><td>99</td><td>牛乳</td><td>gyuunyuu</td><td>Susu</td></tr>
+            <tr><td>100</td><td>お茶</td><td>ocha</td><td>Teh</td></tr>
+            <tr><td>101</td><td>コーヒー</td><td>koohii</td><td>Kopi</td></tr>
+            <tr><td>102</td><td>紅茶</td><td>koucha</td><td>Teh Hitam</td></tr>
+            <tr><td>103</td><td>砂糖</td><td>satou</td><td>Gula</td></tr>
+            <tr><td>104</td><td>塩</td><td>shio</td><td>Garam</td></tr>
+            <tr><td>105</td><td>卵</td><td>tamago</td><td>Telur</td></tr>
+            <tr><td>106</td><td>パン</td><td>pan</td><td>Roti</td></tr>
+            <tr><td>107</td><td>ご飯</td><td>gohan</td><td>Nasi / Makanan</td></tr>
+            <tr><td>108</td><td>寿司</td><td>sushi</td><td>Sushi</td></tr>
+            <tr><td>109</td><td>猫耳</td><td>nekomimi</td><td>Telinga Kucing</td></tr>
+            <tr><td>110</td><td>学校前</td><td>gakkou mae</td><td>Depan Sekolah</td></tr>
+            <tr><td>111</td><td>教室</td><td>kyoushitsu</td><td>Kelas</td></tr>
+            <tr><td>112</td><td>黒板</td><td>kokuban</td><td>Papan Tulis</td></tr>
+            <tr><td>113</td><td>宿題</td><td>shukudai</td><td>Pekerjaan Rumah</td></tr>
+            <tr><td>114</td><td>試験</td><td>shiken</td><td>Ujian</td></tr>
+            <tr><td>115</td><td>質問</td><td>shitsumon</td><td>Pertanyaan</td></tr>
+            <tr><td>116</td><td>答え</td><td>kotae</td><td>Jawaban</td></tr>
+            <tr><td>117</td><td>辞書</td><td>jisho</td><td>Kamus</td></tr>
+            <tr><td>118</td><td>漢字</td><td>kanji</td><td>Huruf Kanji</td></tr>
+            <tr><td>119</td><td>ひらがな</td><td>hiragana</td><td>Huruf Hiragana</td></tr>
+            <tr><td>120</td><td>カタカナ</td><td>katakana</td><td>Huruf Katakana</td></tr>
+            <tr><td>121</td><td>音楽</td><td>ongaku</td><td>Musik</td></tr>
+            <tr><td>122</td><td>歌</td><td>uta</td><td>Lagu</td></tr>
+            <tr><td>123</td><td>映画</td><td>eiga</td><td>Film</td></tr>
+            <tr><td>124</td><td>写真</td><td>shashin</td><td>Foto</td></tr>
+            <tr><td>125</td><td>携帯</td><td>keitai</td><td>HP</td></tr>
+            <tr><td>126</td><td>ゲーム</td><td>geemu</td><td>Game</td></tr>
+            <tr><td>127</td><td>友人</td><td>yuujin</td><td>Teman</td></tr>
+            <tr><td>128</td><td>彼氏</td><td>kareshi</td><td>Pacar Laki-laki</td></tr>
+            <tr><td>129</td><td>彼女</td><td>kanojo</td><td>Pacar Perempuan</td></tr>
+            <tr><td>130</td><td>動物</td><td>doubutsu</td><td>Hewan</td></tr>
+
+        </table>
+
+    </div>
+
+</section>
+
+<!-- KANJI -->
+
+<section id="kanji">
+
+    <h2>🈶 Kanji Dasar</h2>
+
+<div class="card">
+
+    <h3>Apa itu Kanji?</h3>
+
+    <p class="explain">
+        Kanji adalah huruf yang berasal dari Tiongkok dan digunakan dalam bahasa Jepang.
+        Setiap kanji memiliki arti dan cara baca tersendiri.
+    </p>
+
+    <p class="explain">
+        Dalam bahasa Jepang, kanji digunakan untuk:
+    </p>
+
+    <ul style="margin-left:20px; margin-top:10px; line-height:2;">
+
+        <li>Menulis kata benda</li>
+
+        <li>Menulis kata kerja</li>
+
+        <li>Menulis kata sifat</li>
+
+        <li>Membuat tulisan lebih singkat dan mudah dibaca</li>
+
+        <li>Membedakan arti kata yang pengucapannya sama</li>
+
+    </ul>
+
+    <p class="explain">
+
+        Contoh Kanji:
+        <br><br>
+
+        日 = Matahari / Hari
+        <br>
+        学 = Belajar
+        <br>
+        水 = Air
+
+    </p>
+
+    <p class="explain">
+
+        Kanji memiliki 2 jenis cara baca:
+        <br><br>
+
+        🔵 Onyomi → Cara baca dari Tiongkok
+        <br>
+        🔴 Kunyomi → Cara baca asli Jepang
+
+    </p>
+
+    <p class="explain">
+
+        Contoh:
+        <br><br>
+
+        山
+        <br>
+        Onyomi: さん (san)
+        <br>
+        Kunyomi: やま (yama)
+
+    </p>
+
+</div>
+
+    <div class="card">
+
+        <table>
+
+            <tr>
+                <th>No</th>
+                <th>Kanji</th>
+                <th>Arti</th>
+                <th>Onyomi</th>
+                <th>Kunyomi</th>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>日</td>
+                <td>Matahari / Hari</td>
+                <td>にち (nichi)</td>
+                <td>ひ (hi)</td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>月</td>
+                <td>Bulan</td>
+                <td>げつ (getsu)</td>
+                <td>つき (tsuki)</td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>火</td>
+                <td>Api</td>
+                <td>か (ka)</td>
+                <td>ひ (hi)</td>
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td>水</td>
+                <td>Air</td>
+                <td>すい (sui)</td>
+                <td>みず (mizu)</td>
+            </tr>
+
+            <tr>
+                <td>5</td>
+                <td>木</td>
+                <td>Pohon</td>
+                <td>もく (moku)</td>
+                <td>き (ki)</td>
+            </tr>
+
+            <tr>
+                <td>6</td>
+                <td>金</td>
+                <td>Emas / Uang</td>
+                <td>きん (kin)</td>
+                <td>かね (kane)</td>
+            </tr>
+
+            <tr>
+                <td>7</td>
+                <td>土</td>
+                <td>Tanah</td>
+                <td>ど (do)</td>
+                <td>つち (tsuchi)</td>
+            </tr>
+
+            <tr>
+                <td>8</td>
+                <td>山</td>
+                <td>Gunung</td>
+                <td>さん (san)</td>
+                <td>やま (yama)</td>
+            </tr>
+
+            <tr>
+                <td>9</td>
+                <td>川</td>
+                <td>Sungai</td>
+                <td>せん (sen)</td>
+                <td>かわ (kawa)</td>
+            </tr>
+
+            <tr>
+                <td>10</td>
+                <td>空</td>
+                <td>Langit</td>
+                <td>くう (kuu)</td>
+                <td>そら (sora)</td>
+            </tr>
+
+            <tr>
+                <td>11</td>
+                <td>人</td>
+                <td>Orang</td>
+                <td>じん (jin)</td>
+                <td>ひと (hito)</td>
+            </tr>
+
+            <tr>
+                <td>12</td>
+                <td>口</td>
+                <td>Mulut</td>
+                <td>こう (kou)</td>
+                <td>くち (kuchi)</td>
+            </tr>
+
+            <tr>
+                <td>13</td>
+                <td>目</td>
+                <td>Mata</td>
+                <td>もく (moku)</td>
+                <td>め (me)</td>
+            </tr>
+
+            <tr>
+                <td>14</td>
+                <td>耳</td>
+                <td>Telinga</td>
+                <td>じ (ji)</td>
+                <td>みみ (mimi)</td>
+            </tr>
+
+            <tr>
+                <td>15</td>
+                <td>手</td>
+                <td>Tangan</td>
+                <td>しゅ (shu)</td>
+                <td>て (te)</td>
+            </tr>
+
+            <tr>
+                <td>16</td>
+                <td>足</td>
+                <td>Kaki</td>
+                <td>そく (soku)</td>
+                <td>あし (ashi)</td>
+            </tr>
+
+            <tr>
+                <td>17</td>
+                <td>学</td>
+                <td>Belajar</td>
+                <td>がく (gaku)</td>
+                <td>まなぶ (manabu)</td>
+            </tr>
+
+            <tr>
+                <td>18</td>
+                <td>生</td>
+                <td>Hidup</td>
+                <td>せい (sei)</td>
+                <td>いきる (ikiru)</td>
+            </tr>
+
+            <tr>
+                <td>19</td>
+                <td>先</td>
+                <td>Depan</td>
+                <td>せん (sen)</td>
+                <td>さき (saki)</td>
+            </tr>
+
+            <tr>
+                <td>20</td>
+                <td>校</td>
+                <td>Sekolah</td>
+                <td>こう (kou)</td>
+                <td>-</td>
+            </tr>
+
+<tr>
+    <td>21</td>
+    <td>本</td>
+    <td>Buku</td>
+    <td>ほん (hon)</td>
+    <td>もと (moto)</td>
+</tr>
+
+<tr>
+    <td>22</td>
+    <td>文</td>
+    <td>Tulisan</td>
+    <td>ぶん (bun)</td>
+    <td>ふみ (fumi)</td>
+</tr>
+
+<tr>
+    <td>23</td>
+    <td>字</td>
+    <td>Huruf</td>
+    <td>じ (ji)</td>
+    <td>あざ (aza)</td>
+</tr>
+
+<tr>
+    <td>24</td>
+    <td>雨</td>
+    <td>Hujan</td>
+    <td>う (u)</td>
+    <td>あめ (ame)</td>
+</tr>
+
+<tr>
+    <td>25</td>
+    <td>電</td>
+    <td>Listrik</td>
+    <td>でん (den)</td>
+    <td>-</td>
+</tr>
+
+<tr>
+    <td>26</td>
+    <td>車</td>
+    <td>Mobil</td>
+    <td>しゃ (sha)</td>
+    <td>くるま (kuruma)</td>
+</tr>
+
+<tr>
+    <td>27</td>
+    <td>駅</td>
+    <td>Stasiun</td>
+    <td>えき (eki)</td>
+    <td>-</td>
+</tr>
+
+<tr>
+    <td>28</td>
+    <td>花</td>
+    <td>Bunga</td>
+    <td>か (ka)</td>
+    <td>はな (hana)</td>
+</tr>
+
+<tr>
+    <td>29</td>
+    <td>草</td>
+    <td>Rumput</td>
+    <td>そう (sou)</td>
+    <td>くさ (kusa)</td>
+</tr>
+
+<tr>
+    <td>30</td>
+    <td>虫</td>
+    <td>Serangga</td>
+    <td>ちゅう (chuu)</td>
+    <td>むし (mushi)</td>
+</tr>
+
+<tr>
+    <td>31</td>
+    <td>犬</td>
+    <td>Anjing</td>
+    <td>けん (ken)</td>
+    <td>いぬ (inu)</td>
+</tr>
+
+<tr>
+    <td>32</td>
+    <td>猫</td>
+    <td>Kucing</td>
+    <td>びょう (byou)</td>
+    <td>ねこ (neko)</td>
+</tr>
+
+<tr>
+    <td>33</td>
+    <td>魚</td>
+    <td>Ikan</td>
+    <td>ぎょ (gyo)</td>
+    <td>さかな (sakana)</td>
+</tr>
+
+<tr>
+    <td>34</td>
+    <td>鳥</td>
+    <td>Burung</td>
+    <td>ちょう (chou)</td>
+    <td>とり (tori)</td>
+</tr>
+
+<tr>
+    <td>35</td>
+    <td>白</td>
+    <td>Putih</td>
+    <td>はく (haku)</td>
+    <td>しろ (shiro)</td>
+</tr>
+
+<tr>
+    <td>36</td>
+    <td>黒</td>
+    <td>Hitam</td>
+    <td>こく (koku)</td>
+    <td>くろ (kuro)</td>
+</tr>
+
+<tr>
+    <td>37</td>
+    <td>赤</td>
+    <td>Merah</td>
+    <td>せき (seki)</td>
+    <td>あか (aka)</td>
+</tr>
+
+<tr>
+    <td>38</td>
+    <td>青</td>
+    <td>Biru</td>
+    <td>せい (sei)</td>
+    <td>あお (ao)</td>
+</tr>
+
+<tr>
+    <td>39</td>
+    <td>力</td>
+    <td>Kekuatan</td>
+    <td>りょく (ryoku)</td>
+    <td>ちから (chikara)</td>
+</tr>
+
+<tr>
+    <td>40</td>
+    <td>気</td>
+    <td>Energi / Perasaan</td>
+    <td>き (ki)</td>
+    <td>-</td>
+</tr>
+
+<tr>
+    <td>41</td>
+    <td>男</td>
+    <td>Laki-laki</td>
+    <td>だん (dan)</td>
+    <td>おとこ (otoko)</td>
+</tr>
+
+<tr>
+    <td>42</td>
+    <td>女</td>
+    <td>Perempuan</td>
+    <td>じょ (jo)</td>
+    <td>おんな (onna)</td>
+</tr>
+
+<tr>
+    <td>43</td>
+    <td>子</td>
+    <td>Anak</td>
+    <td>し (shi)</td>
+    <td>こ (ko)</td>
+</tr>
+
+<tr>
+    <td>44</td>
+    <td>王</td>
+    <td>Raja</td>
+    <td>おう (ou)</td>
+    <td>-</td>
+</tr>
+
+<tr>
+    <td>45</td>
+    <td>玉</td>
+    <td>Bola / Permata</td>
+    <td>ぎょく (gyoku)</td>
+    <td>たま (tama)</td>
+</tr>
+
+<tr>
+    <td>46</td>
+    <td>村</td>
+    <td>Desa</td>
+    <td>そん (son)</td>
+    <td>むら (mura)</td>
+</tr>
+
+<tr>
+    <td>47</td>
+    <td>町</td>
+    <td>Kota</td>
+    <td>ちょう (chou)</td>
+    <td>まち (machi)</td>
+</tr>
+
+<tr>
+    <td>48</td>
+    <td>音</td>
+    <td>Suara</td>
+    <td>おん (on)</td>
+    <td>おと (oto)</td>
+</tr>
+
+<tr>
+    <td>49</td>
+    <td>楽</td>
+    <td>Senang / Musik</td>
+    <td>がく (gaku)</td>
+    <td>たのしい (tanoshii)</td>
+</tr>
+
+<tr>
+    <td>50</td>
+    <td>早</td>
+    <td>Cepat / Pagi</td>
+    <td>そう (sou)</td>
+    <td>はやい (hayai)</td>
+</tr>
+
+<tr>
+    <td>51</td>
+    <td>見</td>
+    <td>Melihat</td>
+    <td>けん (ken)</td>
+    <td>みる (miru)</td>
+</tr>
+
+<tr>
+    <td>52</td>
+    <td>聞</td>
+    <td>Mendengar</td>
+    <td>ぶん (bun)</td>
+    <td>きく (kiku)</td>
+</tr>
+
+<tr>
+    <td>53</td>
+    <td>話</td>
+    <td>Berbicara</td>
+    <td>わ (wa)</td>
+    <td>はなす (hanasu)</td>
+</tr>
+
+<tr>
+    <td>54</td>
+    <td>読</td>
+    <td>Membaca</td>
+    <td>どく (doku)</td>
+    <td>よむ (yomu)</td>
+</tr>
+
+<tr>
+    <td>55</td>
+    <td>書</td>
+    <td>Menulis</td>
+    <td>しょ (sho)</td>
+    <td>かく (kaku)</td>
+</tr>
+
+<tr>
+    <td>56</td>
+    <td>食</td>
+    <td>Makan</td>
+    <td>しょく (shoku)</td>
+    <td>たべる (taberu)</td>
+</tr>
+
+<tr>
+    <td>57</td>
+    <td>飲</td>
+    <td>Minum</td>
+    <td>いん (in)</td>
+    <td>のむ (nomu)</td>
+</tr>
+
+<tr>
+    <td>58</td>
+    <td>立</td>
+    <td>Berdiri</td>
+    <td>りつ (ritsu)</td>
+    <td>たつ (tatsu)</td>
+</tr>
+
+<tr>
+    <td>59</td>
+    <td>休</td>
+    <td>Istirahat</td>
+    <td>きゅう (kyuu)</td>
+    <td>やすむ (yasumu)</td>
+</tr>
+
+<tr>
+    <td>60</td>
+    <td>入</td>
+    <td>Masuk</td>
+    <td>にゅう (nyuu)</td>
+    <td>はいる (hairu)</td>
+</tr>
+
+<tr>
+    <td>61</td>
+    <td>出</td>
+    <td>Keluar</td>
+    <td>しゅつ (shutsu)</td>
+    <td>でる (deru)</td>
+</tr>
+
+<tr>
+    <td>62</td>
+    <td>右</td>
+    <td>Kanan</td>
+    <td>う (u)</td>
+    <td>みぎ (migi)</td>
+</tr>
+
+<tr>
+    <td>63</td>
+    <td>左</td>
+    <td>Kiri</td>
+    <td>さ (sa)</td>
+    <td>ひだり (hidari)</td>
+</tr>
+
+<tr>
+    <td>64</td>
+    <td>上</td>
+    <td>Atas</td>
+    <td>じょう (jou)</td>
+    <td>うえ (ue)</td>
+</tr>
+
+<tr>
+    <td>65</td>
+    <td>下</td>
+    <td>Bawah</td>
+    <td>か (ka)</td>
+    <td>した (shita)</td>
+</tr>
+
+<tr>
+    <td>66</td>
+    <td>中</td>
+    <td>Tengah</td>
+    <td>ちゅう (chuu)</td>
+    <td>なか (naka)</td>
+</tr>
+
+<tr>
+    <td>67</td>
+    <td>外</td>
+    <td>Luar</td>
+    <td>がい (gai)</td>
+    <td>そと (soto)</td>
+</tr>
+
+<tr>
+    <td>68</td>
+    <td>天</td>
+    <td>Langit / Surga</td>
+    <td>てん (ten)</td>
+    <td>あま (ama)</td>
+</tr>
+
+<tr>
+    <td>69</td>
+    <td>海</td>
+    <td>Laut</td>
+    <td>かい (kai)</td>
+    <td>うみ (umi)</td>
+</tr>
+
+<tr>
+    <td>70</td>
+    <td>林</td>
+    <td>Hutan Kecil</td>
+    <td>りん (rin)</td>
+    <td>はやし (hayashi)</td>
+</tr>
+
+<tr>
+    <td>71</td>
+    <td>森</td>
+    <td>Hutan</td>
+    <td>しん (shin)</td>
+    <td>もり (mori)</td>
+</tr>
+
+<tr>
+    <td>72</td>
+    <td>石</td>
+    <td>Batu</td>
+    <td>せき (seki)</td>
+    <td>いし (ishi)</td>
+</tr>
+
+<tr>
+    <td>73</td>
+    <td>竹</td>
+    <td>Bambu</td>
+    <td>ちく (chiku)</td>
+    <td>たけ (take)</td>
+</tr>
+
+<tr>
+    <td>74</td>
+    <td>糸</td>
+    <td>Benang</td>
+    <td>し (shi)</td>
+    <td>いと (ito)</td>
+</tr>
+
+<tr>
+    <td>75</td>
+    <td>貝</td>
+    <td>Kerang</td>
+    <td>ばい (bai)</td>
+    <td>かい (kai)</td>
+</tr>
+
+<tr>
+    <td>76</td>
+    <td>花火</td>
+    <td>Kembang Api</td>
+    <td>か (ka)</td>
+    <td>はなび (hanabi)</td>
+</tr>
+
+<tr>
+    <td>77</td>
+    <td>夕</td>
+    <td>Sore</td>
+    <td>せき (seki)</td>
+    <td>ゆう (yuu)</td>
+</tr>
+
+<tr>
+    <td>78</td>
+    <td>気分</td>
+    <td>Perasaan</td>
+    <td>きぶん (kibun)</td>
+    <td>-</td>
+</tr>
+
+<tr>
+    <td>79</td>
+    <td>円</td>
+    <td>Yen / Lingkaran</td>
+    <td>えん (en)</td>
+    <td>まる (maru)</td>
+</tr>
+
+<tr>
+    <td>80</td>
+    <td>音楽</td>
+    <td>Musik</td>
+    <td>おんがく (ongaku)</td>
+    <td>-</td>
+</tr>
+
+<tr>
+    <td>81</td>
+    <td>校長</td>
+    <td>Kepala Sekolah</td>
+    <td>こうちょう (kouchou)</td>
+    <td>-</td>
+</tr>
+
+<tr>
+    <td>82</td>
+    <td>毎</td>
+    <td>Setiap</td>
+    <td>まい (mai)</td>
+    <td>-</td>
+</tr>
+
+<tr>
+    <td>83</td>
+    <td>年</td>
+    <td>Tahun</td>
+    <td>ねん (nen)</td>
+    <td>とし (toshi)</td>
+</tr>
+
+<tr>
+    <td>84</td>
+    <td>時</td>
+    <td>Waktu / Jam</td>
+    <td>じ (ji)</td>
+    <td>とき (toki)</td>
+</tr>
+
+<tr>
+    <td>85</td>
+    <td>分</td>
+    <td>Menit / Bagian</td>
+    <td>ふん (fun)</td>
+    <td>わかる (wakaru)</td>
+</tr>
+
+<tr>
+    <td>86</td>
+    <td>半</td>
+    <td>Setengah</td>
+    <td>はん (han)</td>
+    <td>なかば (nakaba)</td>
+</tr>
+
+<tr>
+    <td>87</td>
+    <td>今</td>
+    <td>Sekarang</td>
+    <td>こん (kon)</td>
+    <td>いま (ima)</td>
+</tr>
+
+<tr>
+    <td>88</td>
+    <td>前</td>
+    <td>Depan / Sebelum</td>
+    <td>ぜん (zen)</td>
+    <td>まえ (mae)</td>
+</tr>
+
+<tr>
+    <td>89</td>
+    <td>後</td>
+    <td>Belakang / Setelah</td>
+    <td>ご (go)</td>
+    <td>うしろ (ushiro)</td>
+</tr>
+
+<tr>
+    <td>90</td>
+    <td>間</td>
+    <td>Interval / Ruang</td>
+    <td>かん (kan)</td>
+    <td>あいだ (aida)</td>
+</tr>
+
+<tr>
+    <td>91</td>
+    <td>東</td>
+    <td>Timur</td>
+    <td>とう (tou)</td>
+    <td>ひがし (higashi)</td>
+</tr>
+
+<tr>
+    <td>92</td>
+    <td>西</td>
+    <td>Barat</td>
+    <td>せい (sei)</td>
+    <td>にし (nishi)</td>
+</tr>
+
+<tr>
+    <td>93</td>
+    <td>南</td>
+    <td>Selatan</td>
+    <td>なん (nan)</td>
+    <td>みなみ (minami)</td>
+</tr>
+
+<tr>
+    <td>94</td>
+    <td>北</td>
+    <td>Utara</td>
+    <td>ほく (hoku)</td>
+    <td>きた (kita)</td>
+</tr>
+
+<tr>
+    <td>95</td>
+    <td>国</td>
+    <td>Negara</td>
+    <td>こく (koku)</td>
+    <td>くに (kuni)</td>
+</tr>
+
+<tr>
+    <td>96</td>
+    <td>語</td>
+    <td>Bahasa</td>
+    <td>ご (go)</td>
+    <td>かたる (kataru)</td>
+</tr>
+
+<tr>
+    <td>97</td>
+    <td>名</td>
+    <td>Nama</td>
+    <td>めい (mei)</td>
+    <td>な (na)</td>
+</tr>
+
+<tr>
+    <td>98</td>
+    <td>友</td>
+    <td>Teman</td>
+    <td>ゆう (yuu)</td>
+    <td>とも (tomo)</td>
+</tr>
+
+<tr>
+    <td>99</td>
+    <td>父</td>
+    <td>Ayah</td>
+    <td>ふ (fu)</td>
+    <td>ちち (chichi)</td>
+</tr>
+
+<tr>
+    <td>100</td>
+    <td>母</td>
+    <td>Ibu</td>
+    <td>ぼ (bo)</td>
+    <td>はは (haha)</td>
+</tr>
+
+<tr>
+    <td>101</td>
+    <td>兄</td>
+    <td>Kakak Laki-laki</td>
+    <td>けい (kei)</td>
+    <td>あに (ani)</td>
+</tr>
+
+<tr>
+    <td>102</td>
+    <td>姉</td>
+    <td>Kakak Perempuan</td>
+    <td>し (shi)</td>
+    <td>あね (ane)</td>
+</tr>
+
+<tr>
+    <td>103</td>
+    <td>弟</td>
+    <td>Adik Laki-laki</td>
+    <td>てい (tei)</td>
+    <td>おとうと (otouto)</td>
+</tr>
+
+<tr>
+    <td>104</td>
+    <td>妹</td>
+    <td>Adik Perempuan</td>
+    <td>まい (mai)</td>
+    <td>いもうと (imouto)</td>
+</tr>
+
+<tr>
+    <td>105</td>
+    <td>店員</td>
+    <td>Pegawai Toko</td>
+    <td>てんいん (tenin)</td>
+    <td>-</td>
+</tr>
+
+<tr>
+    <td>106</td>
+    <td>会社</td>
+    <td>Perusahaan</td>
+    <td>かいしゃ (kaisha)</td>
+    <td>-</td>
+</tr>
+
+<tr>
+    <td>107</td>
+    <td>社員</td>
+    <td>Karyawan</td>
+    <td>しゃいん (shain)</td>
+    <td>-</td>
+</tr>
+
+<tr>
+    <td>108</td>
+    <td>先生</td>
+    <td>Guru</td>
+    <td>せんせい (sensei)</td>
+    <td>-</td>
+</tr>
+
+<tr>
+    <td>109</td>
+    <td>学生</td>
+    <td>Siswa</td>
+    <td>がくせい (gakusei)</td>
+    <td>-</td>
+</tr>
+
+<tr>
+    <td>110</td>
+    <td>大学</td>
+    <td>Universitas</td>
+    <td>だいがく (daigaku)</td>
+    <td>-</td>
+</tr>
+
+
+        </table>
+
+    </div>
+
+</section>
+
+<!-- PARTIKEL -->
+
+  <section id="particle">
+
+    <h2>🧩 Partikel Dasar Bahasa Jepang</h2>
+
+    <div class="card">
+
+        <h3>Apa itu Partikel?</h3>
+
+        <p class="explain">
+
+            Partikel adalah kata kecil dalam bahasa Jepang
+            yang berfungsi untuk menunjukkan fungsi kata
+            dalam kalimat.
+
+        </p>
+
+        <p class="explain">
+
+            Contoh:
+            <br><br>
+
+            わたし は がくせい です。
+            <br>
+            Pada kalimat tersebut:
+            <br>
+            「は」 adalah partikel.
+
+        </p>
+
+    </div>
+
+    <!-- ===================================== -->
+    <!-- PARTIKEL WA -->
+    <!-- ===================================== -->
+
+    <div class="card">
+
+        <h3>1. は (wa)</h3>
+
+        <p class="explain">
+            Penanda topik pembicaraan.
+        </p>
+
+        <div style="
+            background:#eef2ff;
+            padding:15px;
+            border-radius:10px;
+            margin-top:10px;
+        ">
+            Subjek + は + Keterangan
+        </div>
+
+        <p class="explain">
+
+            Contoh:
+            <br><br>
+
+            わたし は がくせい です。
+            <br>
+            Saya adalah siswa.
+
+        </p>
+
+    </div>
+
+    <!-- ===================================== -->
+    <!-- WO -->
+    <!-- ===================================== -->
+
+    <div class="card">
+
+        <h3>2. を (wo/o)</h3>
+
+        <p class="explain">
+            Penanda objek.
+        </p>
+
+        <div style="
+            background:#eef2ff;
+            padding:15px;
+            border-radius:10px;
+            margin-top:10px;
+        ">
+            Objek + を + Kata kerja
+        </div>
+
+        <p class="explain">
+
+            Contoh:
+            <br><br>
+
+            パン を たべます。
+            <br>
+            Makan roti.
+
+        </p>
+
+    </div>
+
+    <!-- ===================================== -->
+    <!-- NI -->
+    <!-- ===================================== -->
+
+    <div class="card">
+
+        <h3>3. に (ni)</h3>
+
+        <p class="explain">
+            Menunjukkan waktu, tujuan, atau keberadaan.
+        </p>
+
+        <p class="explain">
+
+            Contoh:
+            <br><br>
+
+            がっこう に いきます。
+            <br>
+            Pergi ke sekolah.
+
+            <br><br>
+
+            7じ に おきます。
+            <br>
+            Bangun jam 7.
+
+        </p>
+
+    </div>
+
+    <!-- ===================================== -->
+    <!-- DE -->
+    <!-- ===================================== -->
+
+    <div class="card">
+
+        <h3>4. で (de)</h3>
+
+        <p class="explain">
+            Menunjukkan tempat aktivitas dilakukan.
+        </p>
+
+        <p class="explain">
+
+            Contoh:
+            <br><br>
+
+            がっこう で べんきょうします。
+            <br>
+            Belajar di sekolah.
+
+        </p>
+
+    </div>
+
+    <!-- ===================================== -->
+    <!-- NO -->
+    <!-- ===================================== -->
+
+    <div class="card">
+
+        <h3>5. の (no)</h3>
+
+        <p class="explain">
+            Menunjukkan kepemilikan atau hubungan.
+        </p>
+
+        <p class="explain">
+
+            Contoh:
+            <br><br>
+
+            わたし の ほん
+            <br>
+            Buku saya.
+
+        </p>
+
+    </div>
+
+    <!-- ===================================== -->
+    <!-- KA -->
+    <!-- ===================================== -->
+
+    <div class="card">
+
+        <h3>6. か (ka)</h3>
+
+        <p class="explain">
+            Digunakan untuk membuat pertanyaan.
+        </p>
+
+        <p class="explain">
+
+            Contoh:
+            <br><br>
+
+            あなた は がくせい ですか？
+            <br>
+            Apakah kamu siswa?
+
+        </p>
+
+    </div>
+
+    <!-- ===================================== -->
+    <!-- MO -->
+    <!-- ===================================== -->
+
+    <div class="card">
+
+        <h3>7. も (mo)</h3>
+
+        <p class="explain">
+            Berarti "juga".
+        </p>
+
+        <p class="explain">
+
+            Contoh:
+            <br><br>
+
+            わたし も がくせい です。
+            <br>
+            Saya juga siswa.
+
+        </p>
+
+    </div>
+
+</section>
+<!-- POLA KALIMAT -->
+
+<section id="grammar">
+
+    <h2>📘 Pola Kalimat Bahasa Jepang</h2>
+
+    <!-- ===================================== -->
+    <!-- DESU POSITIF -->
+    <!-- ===================================== -->
+
+    <div class="card">
+
+        <h3>1. Kalimat Positif (〜です)</h3>
+
+        <p class="explain">
+            Digunakan untuk menyatakan sesuatu secara sopan.
+        </p>
+
+        <p class="explain">
+            Pola:
+        </p>
+
+        <div style="
+            background:#eef2ff;
+            padding:15px;
+            border-radius:10px;
+            margin-top:10px;
+            font-weight:bold;
+        ">
+            Subjek + は + Kata benda / sifat + です
+        </div>
+
+        <p class="explain">
+
+            Contoh:
+            <br><br>
+
+            わたし は がくせい です。
+            <br>
+            Watashi wa gakusei desu.
+            <br>
+            Saya adalah siswa.
+
+            <br><br>
+
+            ねこ は かわいい です。
+            <br>
+            Neko wa kawaii desu.
+            <br>
+            Kucing itu lucu.
+
+        </p>
+
+    </div>
+
+    <!-- ===================================== -->
+    <!-- NEGATIF -->
+    <!-- ===================================== -->
+
+    <div class="card">
+
+        <h3>2. Kalimat Negatif (〜ではありません)</h3>
+
+        <p class="explain">
+            Digunakan untuk menyatakan penolakan atau bukan sesuatu.
+        </p>
+
+        <div style="
+            background:#eef2ff;
+            padding:15px;
+            border-radius:10px;
+            margin-top:10px;
+            font-weight:bold;
+        ">
+            Subjek + は + Kata benda + ではありません
+        </div>
+
+        <p class="explain">
+
+            Contoh:
+            <br><br>
+
+            わたし は せんせい ではありません。
+            <br>
+            Watashi wa sensei dewa arimasen.
+            <br>
+            Saya bukan guru.
+
+            <br><br>
+
+            これは ほん ではありません。
+            <br>
+            Kore wa hon dewa arimasen.
+            <br>
+            Ini bukan buku.
+
+        </p>
+
+    </div>
+
+    <!-- ===================================== -->
+    <!-- PERTANYAAN -->
+    <!-- ===================================== -->
+
+    <div class="card">
+
+        <h3>3. Kalimat Pertanyaan (〜ですか)</h3>
+
+        <p class="explain">
+            Digunakan untuk bertanya.
+        </p>
+
+        <div style="
+            background:#eef2ff;
+            padding:15px;
+            border-radius:10px;
+            margin-top:10px;
+            font-weight:bold;
+        ">
+            Subjek + は + Kata benda + ですか？
+        </div>
+
+        <p class="explain">
+
+            Contoh:
+            <br><br>
+
+            あなた は がくせい ですか？
+            <br>
+            Anata wa gakusei desu ka?
+            <br>
+            Apakah kamu siswa?
+
+            <br><br>
+
+            これは ペン ですか？
+            <br>
+            Kore wa pen desu ka?
+            <br>
+            Apakah ini pena?
+
+        </p>
+
+    </div>
+
+    <!-- ===================================== -->
+    <!-- KATA SIFAT I -->
+    <!-- ===================================== -->
+
+    <div class="card">
+
+        <h3>4. Kata Sifat -い</h3>
+
+        <p class="explain">
+            Kata sifat Jepang yang berakhiran い.
+        </p>
+
+        <div style="
+            background:#eef2ff;
+            padding:15px;
+            border-radius:10px;
+            margin-top:10px;
+            font-weight:bold;
+        ">
+            Kata sifat い + です
+        </div>
+
+        <p class="explain">
+
+            Contoh:
+            <br><br>
+
+            この くるま は おおきい です。
+            <br>
+            Kono kuruma wa ookii desu.
+            <br>
+            Mobil ini besar.
+
+            <br><br>
+
+            その ねこ は かわいい です。
+            <br>
+            Sono neko wa kawaii desu.
+            <br>
+            Kucing itu lucu.
+
+        </p>
+
+    </div>
+
+    <!-- ===================================== -->
+    <!-- NEGATIF KATA SIFAT -->
+    <!-- ===================================== -->
+
+    <div class="card">
+
+        <h3>5. Kata Sifat Negatif</h3>
+
+        <p class="explain">
+            Mengubah kata sifat menjadi negatif.
+        </p>
+
+        <div style="
+            background:#eef2ff;
+            padding:15px;
+            border-radius:10px;
+            margin-top:10px;
+            font-weight:bold;
+        ">
+            Akhiran い → くないです
+        </div>
+
+        <p class="explain">
+
+            Contoh:
+            <br><br>
+
+            おおきい → おおきくないです
+            <br>
+            Tidak besar
+
+            <br><br>
+
+            この へや は ひろくないです。
+            <br>
+            Kono heya wa hirokunai desu.
+            <br>
+            Kamar ini tidak luas.
+
+        </p>
+
+    </div>
+
+    <!-- ===================================== -->
+    <!-- KATA KERJA -->
+    <!-- ===================================== -->
+
+    <div class="card">
+
+        <h3>6. Kata Kerja Dasar</h3>
+
+        <p class="explain">
+            Digunakan untuk menyatakan aktivitas.
+        </p>
+
+        <div style="
+            background:#eef2ff;
+            padding:15px;
+            border-radius:10px;
+            margin-top:10px;
+            font-weight:bold;
+        ">
+            Subjek + は + Objek + を + Kata kerja
+        </div>
+
+        <p class="explain">
+
+            Contoh:
+            <br><br>
+
+            わたし は ほん を よみます。
+            <br>
+            Watashi wa hon wo yomimasu.
+            <br>
+            Saya membaca buku.
+
+            <br><br>
+
+            わたし は みず を のみます。
+            <br>
+            Watashi wa mizu wo nomimasu.
+            <br>
+            Saya minum air.
+
+        </p>
+
+    </div>
+    
+<!-- ===================================== -->
+<!-- TUNJUK BENDA -->
+<!-- ===================================== -->
+
+<div class="card">
+
+    <h3>7. Tunjuk Benda & Orang</h3>
+
+    <p class="explain">
+        Digunakan untuk menunjukkan benda.
+    </p>
+
+    <table>
+
+        <tr>
+            <th>Kata</th>
+            <th>Arti</th>
+        </tr>
+
+        <tr>
+            <td>これ</td>
+            <td>Ini</td>
+        </tr>
+
+        <tr>
+            <td>それ</td>
+            <td>Itu (Dekat dengan lawan bicara)</td>
+        </tr>
+
+        <tr>
+            <td>あれ</td>
+            <td>Itu (Jauh)</td>
+        </tr>
+
+        <tr>
+            <td>どれ</td>
+            <td>Yang mana</td>
+        </tr>
+        
+        <tr>
+            <th>Kata</th>
+            <th>Arti</th>
+        </tr>
+
+        <tr>
+            <td>この</td>
+            <td>Ini</td>
+        </tr>
+
+        <tr>
+            <td>その</td>
+            <td>Itu (Dekat dengan lawan bicara)</td>
+        </tr>
+
+        <tr>
+            <td>あの</td>
+            <td>Itu (Jauh)</td>
+        </tr>
+
+        <tr>
+            <td>どの</td>
+            <td>Yang mana</td>
+        </tr>
+
+    </table>
+
+    <p class="explain">
+
+        Contoh:
+        <br><br>
+
+        これ は ほん です。
+        <br>
+        Kore wa hon desu.
+        <br>
+        Ini adalah buku.
+
+        <br><br>
+
+        あれ は くるま ですか？
+        <br>
+        Are wa kuruma desu ka?
+        <br>
+        Apakah disana mobil?
+        
+        <br><br>
+
+        この くるま は あなたの ですか？
+        <br>
+        Kono kuruma wa anata no desu ka?
+        <br>
+        Apakah mobil ini punya anda?
+
+        <br><br>
+
+        その かばん は わたしの です。
+        <br>
+        Sono kaban wa watashi no desu
+        <br>
+        Tas itu punya saya.
+
+    </p>
+
+</div>
+    
+<!-- ===================================== -->
+<!-- TEMPAT & TUNJUK TEMPAT -->
+<!-- ===================================== -->
+
+<div class="card">
+
+    <h3>8. Tunjuk Tempat & Tempat</h3>
+
+    <p class="explain">
+        Digunakan untuk menunjukkan lokasi atau tempat.
+    </p>
+
+    <table>
+
+        <tr>
+            <th>Kata</th>
+            <th>Arti</th>
+        </tr>
+
+        <tr>
+            <td>ここ</td>
+            <td>Di sini</td>
+        </tr>
+
+        <tr>
+            <td>そこ</td>
+            <td>Di situ</td>
+        </tr>
+
+        <tr>
+            <td>あそこ</td>
+            <td>Di sana</td>
+        </tr>
+
+        <tr>
+            <td>どこ</td>
+            <td>Di mana</td>
+        </tr>
+
+    </table>
+
+    <p class="explain">
+
+        Contoh:
+        <br><br>
+
+        トイレ は どこ ですか？
+        <br>
+        Toire wa doko desu ka?
+        <br>
+        Toilet ada di mana?
+
+        <br><br>
+
+        がっこう は あそこ です。
+        <br>
+        Gakkou wa asoko desu.
+        <br>
+        Sekolah ada di sana.
+
+    </p>
+
+</div>
+
+<!-- ===================================== -->
+<!-- MASU -->
+<!-- ===================================== -->
+
+<div class="card">
+
+    <h3>9. Bentuk ～ます</h3>
+
+    <p class="explain">
+        Bentuk sopan kata kerja positif.
+    </p>
+
+    <div style="
+        background:#eef2ff;
+        padding:15px;
+        border-radius:10px;
+        margin-top:10px;
+        font-weight:bold;
+    ">
+        Kata kerja + ます
+    </div>
+
+    <p class="explain">
+
+        Contoh:
+        <br><br>
+
+        たべます
+        <br>
+        Makan
+
+        <br><br>
+
+        のみます
+        <br>
+        Minum
+
+        <br><br>
+
+        わたし は ほん を よみます。
+        <br>
+        Saya membaca buku.
+
+    </p>
+
+</div>
+
+<!-- ===================================== -->
+<!-- MASEN -->
+<!-- ===================================== -->
+
+<div class="card">
+
+    <h3>10. Bentuk ～ません</h3>
+
+    <p class="explain">
+        Bentuk negatif sopan.
+    </p>
+
+    <div style="
+        background:#eef2ff;
+        padding:15px;
+        border-radius:10px;
+        margin-top:10px;
+        font-weight:bold;
+    ">
+        Kata kerja + ません
+    </div>
+
+    <p class="explain">
+
+        Contoh:
+        <br><br>
+
+        たべません
+        <br>
+        Tidak makan
+
+        <br><br>
+
+        わたし は さかな を たべません。
+        <br>
+        Saya tidak makan ikan.
+
+    </p>
+
+</div>
+
+<!-- ===================================== -->
+<!-- MASHITA -->
+<!-- ===================================== -->
+
+<div class="card">
+
+    <h3>11. Bentuk ～ました</h3>
+
+    <p class="explain">
+        Bentuk lampau positif sopan.
+    </p>
+
+    <div style="
+        background:#eef2ff;
+        padding:15px;
+        border-radius:10px;
+        margin-top:10px;
+        font-weight:bold;
+    ">
+        Kata kerja + ました
+    </div>
+
+    <p class="explain">
+
+        Contoh:
+        <br><br>
+
+        たべました
+        <br>
+        Sudah makan
+
+        <br><br>
+
+        きのう えいが を みました。
+        <br>
+        Kemarin menonton film.
+
+    </p>
+
+</div>
+
+<!-- ===================================== -->
+<!-- MASEN DESHITA -->
+<!-- ===================================== -->
+
+<div class="card">
+
+    <h3>12. Bentuk ～ませんでした</h3>
+
+    <p class="explain">
+        Bentuk lampau negatif sopan.
+    </p>
+
+    <div style="
+        background:#eef2ff;
+        padding:15px;
+        border-radius:10px;
+        margin-top:10px;
+        font-weight:bold;
+    ">
+        Kata kerja + ませんでした
+    </div>
+
+    <p class="explain">
+
+        Contoh:
+        <br><br>
+
+        のみませんでした
+        <br>
+        Tidak minum
+
+        <br><br>
+
+        きのう みず を のみませんでした。
+        <br>
+        Kemarin tidak minum air.
+
+    </p>
+
+</div>
+
+<!-- ===================================== -->
+<!-- WAKTU -->
+<!-- ===================================== -->
+
+<div class="card">
+
+    <h3>13. Keterangan Waktu</h3>
+
+    <p class="explain">
+        Digunakan untuk menunjukkan waktu kegiatan.
+    </p>
+
+    <table>
+
+        <tr>
+            <th>Jepang</th>
+            <th>Arti</th>
+        </tr>
+
+        <tr>
+            <td>きょう</td>
+            <td>Hari ini</td>
+        </tr>
+
+        <tr>
+            <td>あした</td>
+            <td>Besok</td>
+        </tr>
+
+        <tr>
+            <td>きのう</td>
+            <td>Kemarin</td>
+        </tr>
+
+        <tr>
+            <td>あさ</td>
+            <td>Pagi</td>
+        </tr>
+
+        <tr>
+            <td>よる</td>
+            <td>Malam</td>
+        </tr>
+
+    </table>
+
+    <p class="explain">
+
+        Contoh:
+        <br><br>
+
+        あした がっこう に いきます。
+        <br>
+        Besok pergi ke sekolah.
+
+    </p>
+
+</div>
+
+<!-- ===================================== -->
+<!-- KARA MADE -->
+<!-- ===================================== -->
+
+<div class="card">
+
+    <h3>14. から & まで</h3>
+
+    <p class="explain">
+
+        から = dari
+        <br>
+        まで = sampai
+
+    </p>
+
+    <div style="
+        background:#eef2ff;
+        padding:15px;
+        border-radius:10px;
+        margin-top:10px;
+        font-weight:bold;
+    ">
+        A から B まで
+    </div>
+
+    <p class="explain">
+
+        Contoh:
+        <br><br>
+
+        9じ から 5じ まで べんきょうします。
+        <br>
+        Belajar dari jam 9 sampai jam 5.
+
+    </p>
+
+</div>
+
+<!-- ===================================== -->
+<!-- AKHIRAN NE -->
+<!-- ===================================== -->
+
+<div class="card">
+
+    <h3>15. Akhiran ～ね</h3>
+
+    <p class="explain">
+        Digunakan untuk meminta persetujuan atau memastikan.
+    </p>
+
+    <p class="explain">
+
+        Mirip seperti:
+        <br>
+        "ya kan?"
+        <br>
+        "iya ya?"
+
+    </p>
+
+    <p class="explain">
+
+        Contoh:
+        <br><br>
+
+        この ねこ は かわいい ですね。
+        <br>
+        Kono neko wa kawaii desu ne.
+        <br>
+        Kucing ini lucu ya.
+
+        <br><br>
+
+        きょう は あつい ですね。
+        <br>
+        Hari ini panas ya.
+
+    </p>
+
+</div>
+    
+    </section>
+    
+<!-- =========================
+     FOOTER BARU
+========================= -->
+
+<footer>
+
+    <h2 style="margin-bottom:10px;">
+        🇯🇵 Nihongo Learning Website
+    </h2>
+
+    <p style="margin-bottom:15px;">
+        Website belajar bahasa Jepang lengkap untuk pemula
+    </p>
+
+    <!-- SOSIAL MEDIA -->
+
+    <div style="
+        display:flex;
+        justify-content:center;
+        gap:15px;
+        flex-wrap:wrap;
+        margin-bottom:20px;
+    ">
+
+        <a href="https://instagram.com/vinzgandesblood"
+        target="_blank"
+        style="
+            text-decoration:none;
+            color:white;
+            background:#e1306c;
+            padding:10px 18px;
+            border-radius:10px;
+        ">
+            📸 Instagram
+        </a>
+
+        <a href="https://youtube.com/@Vinz_X7"
+        target="_blank"
+        style="
+            text-decoration:none;
+            color:white;
+            background:#ff0000;
+            padding:10px 18px;
+            border-radius:10px;
+        ">
+            ▶ YouTube
+        </a>
+
+        <a href="https://tiktok.com/@vinz.gandesblood"
+        target="_blank"
+        style="
+            text-decoration:none;
+            color:white;
+            background:#111;
+            padding:10px 18px;
+            border-radius:10px;
+        ">
+            🎵 TikTok
+        </a>
+
+        <a href="https://whatsapp.com/channel/0029VbAywUn0lwgxkLQg6D3N"
+        target="_blank"
+        style="
+            text-decoration:none;
+            color:white;
+            background:#5865f2;
+            padding:10px 18px;
+            border-radius:10px;
+        ">
+            💬 Saluran Whatsapp
+        </a>
+
+    </div>
+
+    <!-- COPYRIGHT -->
+
+    <div style="
+        border-top:1px solid rgba(255,255,255,0.2);
+        padding-top:15px;
+        line-height:1.8;
+    ">
+
+        <p>
+            © 2026 Nihongo Learning Website
+        </p>
+
+        <p>
+            All Rights Reserved
+        </p>
+
+        <p style="font-size:14px; opacity:0.8;">
+            Dibuat untuk pembelajaran bahasa Jepang 🇯🇵
+        </p>
+
+    </div>
+
+</footer>
+    
+<script>
+
+/* =========================
+   NAVIGATION
+========================= */
+
+function showSection(id){
+
+    document.querySelectorAll("section").forEach(section=>{
+        section.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+}
+
+/* =========================
+   DAILY QUIZ SYSTEM
+========================= */
+
+const quizzes = [
+
+    /* =========================
+       HIRAGANA
+    ========================= */
+
+    {
+        question:"Apa bacaan dari あ ?",
+        answers:["a","i","u","e"],
+        correct:"a"
+    },
+
+    {
+        question:"Apa bacaan dari し ?",
+        answers:["shi","chi","su","sa"],
+        correct:"shi"
+    },
+
+    {
+        question:"Apa bacaan dari つ ?",
+        answers:["tsu","su","to","ta"],
+        correct:"tsu"
+    },
+
+    {
+        question:"Apa bacaan dari ぬ ?",
+        answers:["nu","ne","na","ni"],
+        correct:"nu"
+    },
+
+    {
+        question:"Apa bacaan dari へ ?",
+        answers:["he","ho","ha","hi"],
+        correct:"he"
+    },
+
+    /* =========================
+       KATAKANA
+    ========================= */
+
+    {
+        question:"Apa bacaan dari ア ?",
+        answers:["a","i","u","o"],
+        correct:"a"
+    },
+
+    {
+        question:"Apa bacaan dari ツ ?",
+        answers:["tsu","su","to","ta"],
+        correct:"tsu"
+    },
+
+    {
+        question:"Apa bacaan dari ネ ?",
+        answers:["ne","na","ni","nu"],
+        correct:"ne"
+    },
+
+    {
+        question:"Apa bacaan dari モ ?",
+        answers:["mo","ma","me","mi"],
+        correct:"mo"
+    },
+
+    {
+        question:"Apa bacaan dari ケ ?",
+        answers:["ke","ka","ko","ku"],
+        correct:"ke"
+    },
+
+    /* =========================
+       DAKUTEN
+    ========================= */
+
+    {
+        question:"Apa bacaan dari が ?",
+        answers:["ga","ka","za","ba"],
+        correct:"ga"
+    },
+
+    {
+        question:"Apa bacaan dari ぎ ?",
+        answers:["gi","ki","ji","bi"],
+        correct:"gi"
+    },
+
+    {
+        question:"Apa bacaan dari ぜ ?",
+        answers:["ze","se","de","be"],
+        correct:"ze"
+    },
+
+    {
+        question:"Apa bacaan dari ど ?",
+        answers:["do","to","bo","go"],
+        correct:"do"
+    },
+
+    {
+        question:"Apa bacaan dari ば ?",
+        answers:["ba","ha","pa","da"],
+        correct:"ba"
+    },
+
+    /* =========================
+       HANDAKUTEN
+    ========================= */
+
+    {
+        question:"Apa bacaan dari ぱ ?",
+        answers:["pa","ba","ha","ta"],
+        correct:"pa"
+    },
+
+    {
+        question:"Apa bacaan dari ぴ ?",
+        answers:["pi","bi","hi","chi"],
+        correct:"pi"
+    },
+
+    {
+        question:"Apa bacaan dari ぷ ?",
+        answers:["pu","bu","fu","ku"],
+        correct:"pu"
+    },
+
+    {
+        question:"Apa bacaan dari ぺ ?",
+        answers:["pe","be","he","de"],
+        correct:"pe"
+    },
+
+    {
+        question:"Apa bacaan dari ぽ ?",
+        answers:["po","bo","ho","to"],
+        correct:"po"
+    },
+
+    /* =========================
+       YOON
+    ========================= */
+
+    {
+        question:"Apa bacaan dari きゃ ?",
+        answers:["kya","sha","cha","kyo"],
+        correct:"kya"
+    },
+
+    {
+        question:"Apa bacaan dari しゅ ?",
+        answers:["shu","sho","sha","chu"],
+        correct:"shu"
+    },
+
+    {
+        question:"Apa bacaan dari ちょ ?",
+        answers:["cho","chu","cha","sho"],
+        correct:"cho"
+    },
+
+    {
+        question:"Apa bacaan dari にゅ ?",
+        answers:["nyu","nyo","nya","ryu"],
+        correct:"nyu"
+    },
+
+    {
+        question:"Apa bacaan dari りょ ?",
+        answers:["ryo","rya","ryu","nyo"],
+        correct:"ryo"
+    },
+
+    /* =========================
+       KOSAKATA
+    ========================= */
+
+    {
+        question:"Apa arti dari 猫 (neko) ?",
+        answers:["Kucing","Anjing","Burung","Ikan"],
+        correct:"Kucing"
+    },
+
+    {
+        question:"Apa arti dari 水 (mizu) ?",
+        answers:["Api","Air","Tanah","Angin"],
+        correct:"Air"
+    },
+
+    {
+        question:"Apa arti dari 学校 (gakkou) ?",
+        answers:["Sekolah","Rumah","Taman","Kantor"],
+        correct:"Sekolah"
+    },
+
+    {
+        question:"Apa arti dari 食べる (taberu) ?",
+        answers:["Minum","Tidur","Makan","Pergi"],
+        correct:"Makan"
+    },
+
+    {
+        question:"Apa arti dari 本 (hon) ?",
+        answers:["Pensil","Buku","Tas","Kursi"],
+        correct:"Buku"
+    },
+
+    {
+        question:"Apa arti dari 山 (yama) ?",
+        answers:["Gunung","Sungai","Laut","Danau"],
+        correct:"Gunung"
+    },
+
+    {
+        question:"Apa arti dari 空 (sora) ?",
+        answers:["Tanah","Langit","Air","Api"],
+        correct:"Langit"
+    },
+
+    {
+        question:"Apa arti dari 車 (kuruma) ?",
+        answers:["Kereta","Mobil","Sepeda","Motor"],
+        correct:"Mobil"
+    },
+
+    /* =========================
+       KANJI
+    ========================= */
+
+    {
+        question:"Apa kunyomi dari 山 ?",
+        answers:["yama","san","kawa","mori"],
+        correct:"yama"
+    },
+
+    {
+        question:"Apa onyomi dari 水 ?",
+        answers:["sui","mizu","san","kawa"],
+        correct:"sui"
+    },
+
+    {
+        question:"Apa arti kanji 火 ?",
+        answers:["Air","Api","Tanah","Langit"],
+        correct:"Api"
+    },
+
+    {
+        question:"Apa kunyomi dari 川 ?",
+        answers:["kawa","sen","umi","yama"],
+        correct:"kawa"
+    },
+
+    {
+        question:"Apa onyomi dari 学 ?",
+        answers:["gaku","manabu","kou","sei"],
+        correct:"gaku"
+    },
+
+    {
+        question:"Apa arti kanji 空 ?",
+        answers:["Laut","Sungai","Langit","Gunung"],
+        correct:"Langit"
+    },
+
+    {
+        question:"Apa kunyomi dari 手 ?",
+        answers:["te","shu","ashi","mimi"],
+        correct:"te"
+    },
+
+    {
+        question:"Apa onyomi dari 金 ?",
+        answers:["kin","kane","gin","do"],
+        correct:"kin"
+    }
+
+];
+
+/* =========================
+   DAILY RANDOM QUIZ
+========================= */
+
+function getTodayDate(){
+
+    const today = new Date();
+
+    return today.getFullYear() + "-" +
+           today.getMonth() + "-" +
+           today.getDate();
+}
+
+function loadDailyQuiz(){
+
+    const todayKey = getTodayDate();
+
+    const savedDate = localStorage.getItem("quizDate");
+
+    let quiz;
+
+    if(savedDate === todayKey){
+
+        quiz = JSON.parse(localStorage.getItem("dailyQuiz"));
+
+    }else{
+
+        quiz = quizzes[Math.floor(Math.random() * quizzes.length)];
+
+        localStorage.setItem("quizDate", todayKey);
+
+        localStorage.setItem("dailyQuiz", JSON.stringify(quiz));
+
+        localStorage.removeItem("answeredToday");
+    }
+
+    renderQuiz(quiz);
+}
+
+/* =========================
+   RENDER QUIZ
+========================= */
+
+function renderQuiz(quiz){
+
+    document.getElementById("question").innerHTML =
+        quiz.question;
+
+    const answersDiv = document.getElementById("answers");
+
+    answersDiv.innerHTML = "";
+
+    quiz.answers.forEach(answer=>{
+
+        const btn = document.createElement("button");
+
+        btn.innerHTML = answer;
+
+        btn.onclick = ()=>checkAnswer(answer, quiz.correct);
+
+        answersDiv.appendChild(btn);
+
+    });
+
+}
+
+/* =========================
+   CHECK ANSWER
+========================= */
+
+function checkAnswer(answer, correct){
+
+    const result = document.getElementById("result");
+
+    const alreadyAnswered =
+        localStorage.getItem("answeredToday");
+
+    if(alreadyAnswered){
+
+        result.innerHTML =
+            "⚠️ Kamu sudah mengerjakan quiz hari ini!";
+
+        result.style.color = "orange";
+
+        return;
+    }
+
+    if(answer === correct){
+
+        result.innerHTML =
+            "✅ Benar!";
+
+        result.style.color = "green";
+
+        let totalCorrect =
+            parseInt(localStorage.getItem("totalCorrect")) || 0;
+
+        totalCorrect++;
+
+        localStorage.setItem(
+            "totalCorrect",
+            totalCorrect
+        );
+
+    }else{
+
+        result.innerHTML =
+            "❌ Salah! Jawaban benar: " + correct;
+
+        result.style.color = "red";
+    }
+
+    localStorage.setItem("answeredToday", true);
+
+    updateAchievement();
+}
+
+/* =========================
+   ACHIEVEMENT SYSTEM
+========================= */
+
+function updateAchievement(){
+
+    let totalCorrect =
+        parseInt(localStorage.getItem("totalCorrect")) || 0;
+
+    let title = "Beginner";
+
+    if(totalCorrect >= 5){
+        title = "Kana Learner";
+    }
+
+    if(totalCorrect >= 10){
+        title = "Hiragana Master";
+    }
+
+    if(totalCorrect >= 20){
+        title = "Katakana Warrior";
+    }
+
+    if(totalCorrect >= 35){
+        title = "Japanese Explorer";
+    }
+
+    if(totalCorrect >= 50){
+        title = "JLPT Challenger";
+    }
+
+    if(totalCorrect >= 75){
+        title = "Kana Grandmaster";
+    }
+
+    if(totalCorrect >= 100){
+        title = "Legendary Nihongo User";
+    }
+
+    document.getElementById("achievement").innerHTML =
+        "🏆 Title: " + title;
+
+    document.getElementById("scoreText").innerHTML =
+        "✅ Total Quiz Benar: " + totalCorrect;
+}
+
+/* =========================
+   START
+========================= */
+
+loadDailyQuiz();
+
+updateAchievement();
+
+</script>
+
+</body>
+</html>
