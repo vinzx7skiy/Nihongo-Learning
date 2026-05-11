@@ -164,6 +164,7 @@
     <button onclick="showSection('kanji')">Kanji</button>
     <button onclick="showSection('grammar')">Pola Kalimat</button>
     <button onclick="showSection('particle')">Partikel</button>
+    <button onclick="showSection('jlpt')">JLPT Test</button>
 </nav>
 
 <!-- HIRAGANA -->
@@ -2658,6 +2659,54 @@
     </section>
     
 <!-- =========================
+     SECTION JLPT TEST
+========================= -->
+
+<section id="jlpt">
+
+    <h2>🎌 JLPT Test N5 - N1</h2>
+
+    <div class="card">
+
+        <h3>Pilih Tingkat Kesulitan</h3>
+
+        <select id="levelSelect" onchange="startJLPT()"
+        style="
+            padding:10px;
+            border-radius:10px;
+            margin-top:10px;
+            width:200px;
+        ">
+
+            <option value="">-- Pilih Level --</option>
+            <option value="N5">JLPT N5</option>
+            <option value="N4">JLPT N4</option>
+            <option value="N3">JLPT N3</option>
+            <option value="N2">JLPT N2</option>
+            <option value="N1">JLPT N1</option>
+
+        </select>
+
+    </div>
+
+    <div class="quiz-box" id="jlptBox" style="display:none;">
+
+        <h3 id="jlptQuestion">Question</h3>
+
+        <div id="jlptAnswers"></div>
+
+        <div class="result" id="jlptResult"></div>
+
+        <button onclick="nextQuestion()" id="nextBtn"
+        style="display:none;">
+            Soal Berikutnya
+        </button>
+
+    </div>
+
+</section>
+    
+<!-- =========================
      FOOTER BARU
 ========================= -->
 
@@ -3222,6 +3271,1642 @@ function updateAchievement(){
 loadDailyQuiz();
 
 updateAchievement();
+
+/* =========================
+   DATA SOAL JLPT
+========================= */
+
+const jlptData = {
+
+N5:[
+
+{
+question:"Apa arti 猫 (ねこ) ?",
+answers:["Kucing","Anjing","Burung","Ikan"],
+correct:"Kucing"
+},
+
+{
+question:"Apa arti 水 ?",
+answers:["Api","Air","Tanah","Angin"],
+correct:"Air"
+},
+
+{
+question:"Bacaan dari 学校 ?",
+answers:["gakkou","sensei","daigaku","tomodachi"],
+correct:"gakkou"
+},
+
+{
+question:"Apa arti 食べる ?",
+answers:["Tidur","Minum","Makan","Pergi"],
+correct:"Makan"
+},
+
+{
+question:"Apa arti 山 ?",
+answers:["Gunung","Sungai","Laut","Langit"],
+correct:"Gunung"
+},
+
+{
+question:"Apa arti 赤い ?",
+answers:["Biru","Putih","Merah","Hitam"],
+correct:"Merah"
+},
+
+{
+question:"Apa arti 本 ?",
+answers:["Pensil","Buku","Tas","Meja"],
+correct:"Buku"
+},
+
+{
+question:"Apa arti 行く ?",
+answers:["Pergi","Datang","Tidur","Belajar"],
+correct:"Pergi"
+},
+
+{
+question:"Apa arti 先生 ?",
+answers:["Siswa","Dokter","Guru","Polisi"],
+correct:"Guru"
+},
+
+{
+question:"Apa arti 友達 ?",
+answers:["Teman","Musuh","Keluarga","Guru"],
+correct:"Teman"
+},
+
+{
+question:"Apa arti 電車 ?",
+answers:["Mobil","Kereta","Pesawat","Sepeda"],
+correct:"Kereta"
+},
+
+{
+question:"Apa arti 雨 ?",
+answers:["Salju","Angin","Hujan","Awan"],
+correct:"Hujan"
+},
+
+{
+question:"Apa arti 雪 ?",
+answers:["Api","Es","Salju","Kabut"],
+correct:"Salju"
+},
+
+{
+question:"Apa arti 海 ?",
+answers:["Sungai","Laut","Danau","Kolam"],
+correct:"Laut"
+},
+
+{
+question:"Apa arti 飲む ?",
+answers:["Makan","Tidur","Minum","Menulis"],
+correct:"Minum"
+},
+
+{
+question:"Apa arti 見る ?",
+answers:["Melihat","Mendengar","Berbicara","Berjalan"],
+correct:"Melihat"
+},
+
+{
+question:"Apa arti 聞く ?",
+answers:["Menulis","Membaca","Mendengar","Melihat"],
+correct:"Mendengar"
+},
+
+{
+question:"Apa arti 話す ?",
+answers:["Berbicara","Tidur","Belajar","Makan"],
+correct:"Berbicara"
+},
+
+{
+question:"Apa arti 読む ?",
+answers:["Menulis","Membaca","Melihat","Pergi"],
+correct:"Membaca"
+},
+
+{
+question:"Apa arti 書く ?",
+answers:["Membaca","Menulis","Mendengar","Berbicara"],
+correct:"Menulis"
+},
+
+{
+question:"Apa arti 寝る ?",
+answers:["Bangun","Tidur","Pergi","Belajar"],
+correct:"Tidur"
+},
+
+{
+question:"Apa arti 起きる ?",
+answers:["Tidur","Bangun","Makan","Berlari"],
+correct:"Bangun"
+},
+
+{
+question:"Apa arti 買う ?",
+answers:["Membeli","Menjual","Melihat","Membuka"],
+correct:"Membeli"
+},
+
+{
+question:"Apa arti 売る ?",
+answers:["Membeli","Menjual","Menyewa","Memberi"],
+correct:"Menjual"
+},
+
+{
+question:"Apa arti 大きい ?",
+answers:["Kecil","Cepat","Besar","Pendek"],
+correct:"Besar"
+},
+
+{
+question:"Apa arti 小さい ?",
+answers:["Kecil","Besar","Tinggi","Panjang"],
+correct:"Kecil"
+},
+
+{
+question:"Apa arti 新しい ?",
+answers:["Baru","Lama","Cepat","Mahal"],
+correct:"Baru"
+},
+
+{
+question:"Apa arti 古い ?",
+answers:["Muda","Baru","Tua","Murah"],
+correct:"Tua"
+},
+
+{
+question:"Apa arti 白い ?",
+answers:["Merah","Hitam","Putih","Hijau"],
+correct:"Putih"
+},
+
+{
+question:"Apa arti 黒い ?",
+answers:["Putih","Merah","Hitam","Kuning"],
+correct:"Hitam"
+},
+
+{
+question:"Apa arti 青い ?",
+answers:["Biru","Merah","Hijau","Putih"],
+correct:"Biru"
+},
+
+{
+question:"Apa arti 今日 ?",
+answers:["Besok","Hari ini","Kemarin","Malam"],
+correct:"Hari ini"
+},
+
+{
+question:"Apa arti 明日 ?",
+answers:["Kemarin","Hari ini","Besok","Pagi"],
+correct:"Besok"
+},
+
+{
+question:"Apa arti 昨日 ?",
+answers:["Besok","Kemarin","Hari ini","Minggu depan"],
+correct:"Kemarin"
+},
+
+{
+question:"Apa arti 日本 ?",
+answers:["China","Korea","Indonesia","Jepang"],
+correct:"Jepang"
+},
+
+{
+question:"Apa arti 学生 ?",
+answers:["Guru","Dokter","Siswa","Polisi"],
+correct:"Siswa"
+},
+
+{
+question:"Apa arti 大学 ?",
+answers:["Sekolah","Kelas","Universitas","Perpustakaan"],
+correct:"Universitas"
+},
+
+{
+question:"Apa arti 家族 ?",
+answers:["Teman","Guru","Keluarga","Tetangga"],
+correct:"Keluarga"
+},
+
+{
+question:"Apa arti 部屋 ?",
+answers:["Rumah","Kamar","Pintu","Jendela"],
+correct:"Kamar"
+},
+
+{
+question:"Apa arti 家 ?",
+answers:["Sekolah","Rumah","Gedung","Taman"],
+correct:"Rumah"
+},
+
+{
+question:"Apa arti 窓 ?",
+answers:["Pintu","Atap","Lantai","Jendela"],
+correct:"Jendela"
+},
+
+{
+question:"Apa arti 机 ?",
+answers:["Kursi","Meja","Lemari","Tas"],
+correct:"Meja"
+},
+
+{
+question:"Apa arti 椅子 ?",
+answers:["Meja","Kursi","Kasur","Rak"],
+correct:"Kursi"
+},
+
+{
+question:"Apa arti 電話 ?",
+answers:["Telepon","Komputer","Jam","Radio"],
+correct:"Telepon"
+},
+
+{
+question:"Apa arti 時計 ?",
+answers:["Kalender","Jam","Tas","Buku"],
+correct:"Jam"
+},
+
+{
+question:"Apa arti 靴 ?",
+answers:["Topi","Sepatu","Baju","Celana"],
+correct:"Sepatu"
+},
+
+{
+question:"Apa arti 病院 ?",
+answers:["Sekolah","Bank","Rumah Sakit","Kantor"],
+correct:"Rumah Sakit"
+},
+
+{
+question:"Apa arti 医者 ?",
+answers:["Guru","Dokter","Polisi","Petani"],
+correct:"Dokter"
+},
+
+{
+question:"Apa arti 銀行 ?",
+answers:["Bank","Toko","Stasiun","Hotel"],
+correct:"Bank"
+},
+
+{
+question:"Apa arti 公園 ?",
+answers:["Taman","Gunung","Pantai","Pasar"],
+correct:"Taman"
+}
+
+],
+
+N4:[
+
+{
+question:"Apa arti 病院 ?",
+answers:["Sekolah","Rumah sakit","Bank","Stasiun"],
+correct:"Rumah sakit"
+},
+
+{
+question:"Apa arti 地下鉄 ?",
+answers:["Pesawat","Mobil","Kereta bawah tanah","Sepeda"],
+correct:"Kereta bawah tanah"
+},
+
+{
+question:"Apa arti 宿題 ?",
+answers:["PR","Liburan","Musik","Olahraga"],
+correct:"PR"
+},
+
+{
+question:"Apa arti 勉強 ?",
+answers:["Belajar","Bekerja","Membaca","Menulis"],
+correct:"Belajar"
+},
+
+{
+question:"Apa arti 電話 ?",
+answers:["Komputer","Telepon","TV","Radio"],
+correct:"Telepon"
+},
+
+{
+question:"Apa arti 飛行機 ?",
+answers:["Pesawat","Kereta","Bus","Kapal"],
+correct:"Pesawat"
+},
+
+{
+question:"Apa arti 地図 ?",
+answers:["Tas","Peta","Pintu","Kunci"],
+correct:"Peta"
+},
+
+{
+question:"Apa arti 時計 ?",
+answers:["Jam","Sepatu","Topi","Payung"],
+correct:"Jam"
+},
+
+{
+question:"Apa arti 音楽 ?",
+answers:["Film","Foto","Musik","Game"],
+correct:"Musik"
+},
+
+{
+question:"Apa arti 質問 ?",
+answers:["Jawaban","Pertanyaan","Kamus","Huruf"],
+correct:"Pertanyaan"
+},
+
+{
+question:"Apa arti 天気 ?",
+answers:["Cuaca","Makanan","Pekerjaan","Kesehatan"],
+correct:"Cuaca"
+},
+
+{
+question:"Apa arti 洗濯 ?",
+answers:["Mencuci","Memasak","Belajar","Membaca"],
+correct:"Mencuci"
+},
+
+{
+question:"Apa arti 掃除 ?",
+answers:["Membersihkan","Menulis","Berbicara","Mendengar"],
+correct:"Membersihkan"
+},
+
+{
+question:"Apa arti 料理 ?",
+answers:["Olahraga","Masakan","Pelajaran","Perjalanan"],
+correct:"Masakan"
+},
+
+{
+question:"Apa arti 買い物 ?",
+answers:["Belanja","Belajar","Bekerja","Tidur"],
+correct:"Belanja"
+},
+
+{
+question:"Apa arti 散歩 ?",
+answers:["Berlari","Berjalan-jalan","Menyetir","Terbang"],
+correct:"Berjalan-jalan"
+},
+
+{
+question:"Apa arti 会社 ?",
+answers:["Sekolah","Rumah","Perusahaan","Rumah sakit"],
+correct:"Perusahaan"
+},
+
+{
+question:"Apa arti 会議 ?",
+answers:["Rapat","Permainan","Pelajaran","Liburan"],
+correct:"Rapat"
+},
+
+{
+question:"Apa arti 工場 ?",
+answers:["Toko","Pabrik","Bandara","Kantor"],
+correct:"Pabrik"
+},
+
+{
+question:"Apa arti 受付 ?",
+answers:["Resepsionis","Kasir","Guru","Dokter"],
+correct:"Resepsionis"
+},
+
+{
+question:"Apa arti 案内 ?",
+answers:["Panduan","Masalah","Janji","Jawaban"],
+correct:"Panduan"
+},
+
+{
+question:"Apa arti 利用 ?",
+answers:["Penggunaan","Larangan","Perubahan","Kesempatan"],
+correct:"Penggunaan"
+},
+
+{
+question:"Apa arti 調べる ?",
+answers:["Mencari","Meneliti","Memasak","Menggambar"],
+correct:"Meneliti"
+},
+
+{
+question:"Apa arti 予約 ?",
+answers:["Pesanan","Janji temu","Reservasi","Tiket"],
+correct:"Reservasi"
+},
+
+{
+question:"Apa arti 特別 ?",
+answers:["Khusus","Biasa","Sulit","Mudah"],
+correct:"Khusus"
+},
+
+{
+question:"Apa arti 自由 ?",
+answers:["Aturan","Kebebasan","Harapan","Keputusan"],
+correct:"Kebebasan"
+},
+
+{
+question:"Apa arti 安全 ?",
+answers:["Bahaya","Aman","Cepat","Lambat"],
+correct:"Aman"
+},
+
+{
+question:"Apa arti 危険 ?",
+answers:["Mudah","Berbahaya","Murah","Mahal"],
+correct:"Berbahaya"
+},
+
+{
+question:"Apa arti 確認 ?",
+answers:["Konfirmasi","Kesalahan","Pendapat","Pertanyaan"],
+correct:"Konfirmasi"
+},
+
+{
+question:"Apa arti 連休 ?",
+answers:["Libur panjang","Hari kerja","Ujian","Perjalanan"],
+correct:"Libur panjang"
+},
+
+{
+question:"Apa arti 趣味 ?",
+answers:["Hobi","Pekerjaan","Olahraga","Pelajaran"],
+correct:"Hobi"
+},
+
+{
+question:"Apa arti 運動 ?",
+answers:["Belajar","Olahraga","Tidur","Makan"],
+correct:"Olahraga"
+},
+
+{
+question:"Apa arti 試験 ?",
+answers:["Pelajaran","Ujian","Jawaban","Pertanyaan"],
+correct:"Ujian"
+},
+
+{
+question:"Apa arti 成績 ?",
+answers:["Nilai","Kelas","Guru","Sekolah"],
+correct:"Nilai"
+},
+
+{
+question:"Apa arti 卒業 ?",
+answers:["Masuk sekolah","Kelulusan","Liburan","Pindah"],
+correct:"Kelulusan"
+},
+
+{
+question:"Apa arti 練習 ?",
+answers:["Latihan","Pekerjaan","Permainan","Perjalanan"],
+correct:"Latihan"
+},
+
+{
+question:"Apa arti 文化 ?",
+answers:["Ekonomi","Budaya","Politik","Teknologi"],
+correct:"Budaya"
+},
+
+{
+question:"Apa arti 歴史 ?",
+answers:["Geografi","Bahasa","Sejarah","Sains"],
+correct:"Sejarah"
+},
+
+{
+question:"Apa arti 世界 ?",
+answers:["Negara","Dunia","Kota","Desa"],
+correct:"Dunia"
+},
+
+{
+question:"Apa arti 将来 ?",
+answers:["Masa depan","Masa lalu","Sekarang","Liburan"],
+correct:"Masa depan"
+},
+
+{
+question:"Apa arti 最近 ?",
+answers:["Barusan","Akhir-akhir ini","Besok","Kemarin"],
+correct:"Akhir-akhir ini"
+},
+
+{
+question:"Apa arti 昔 ?",
+answers:["Sekarang","Nanti","Dulu","Besok"],
+correct:"Dulu"
+},
+
+{
+question:"Apa arti 季節 ?",
+answers:["Musim","Cuaca","Hari","Waktu"],
+correct:"Musim"
+},
+
+{
+question:"Apa arti 春 ?",
+answers:["Musim panas","Musim gugur","Musim semi","Musim dingin"],
+correct:"Musim semi"
+},
+
+{
+question:"Apa arti 夏 ?",
+answers:["Musim panas","Musim hujan","Musim dingin","Musim semi"],
+correct:"Musim panas"
+},
+
+{
+question:"Apa arti 秋 ?",
+answers:["Musim gugur","Musim panas","Musim dingin","Musim semi"],
+correct:"Musim gugur"
+},
+
+{
+question:"Apa arti 冬 ?",
+answers:["Musim panas","Musim dingin","Musim gugur","Musim semi"],
+correct:"Musim dingin"
+},
+
+{
+question:"Apa arti 暑い ?",
+answers:["Dingin","Panas","Sejuk","Hangat"],
+correct:"Panas"
+},
+
+{
+question:"Apa arti 寒い ?",
+answers:["Panas","Dingin","Hangat","Sejuk"],
+correct:"Dingin"
+},
+
+{
+question:"Apa arti 有名 ?",
+answers:["Terkenal","Rahasia","Sulit","Murah"],
+correct:"Terkenal"
+}
+
+],
+
+N3:[
+
+{
+question:"Apa arti 経験 ?",
+answers:["Pengalaman","Kebiasaan","Harapan","Kesempatan"],
+correct:"Pengalaman"
+},
+
+{
+question:"Apa arti 必要 ?",
+answers:["Penting","Perlu","Mudah","Sulit"],
+correct:"Perlu"
+},
+
+{
+question:"Apa arti 準備 ?",
+answers:["Persiapan","Perjalanan","Keputusan","Kegiatan"],
+correct:"Persiapan"
+},
+
+{
+question:"Apa arti 関係 ?",
+answers:["Hubungan","Pekerjaan","Masalah","Informasi"],
+correct:"Hubungan"
+},
+
+{
+question:"Apa arti 説明 ?",
+answers:["Larangan","Penjelasan","Pendapat","Percobaan"],
+correct:"Penjelasan"
+},
+
+{
+question:"Apa arti 連絡 ?",
+answers:["Kontak","Pelajaran","Peringatan","Janji"],
+correct:"Kontak"
+},
+
+{
+question:"Apa arti 注意 ?",
+answers:["Perhatian","Kesempatan","Harapan","Tujuan"],
+correct:"Perhatian"
+},
+
+{
+question:"Apa arti 運転 ?",
+answers:["Mengemudi","Berjalan","Berlari","Terbang"],
+correct:"Mengemudi"
+},
+
+{
+question:"Apa arti 約束 ?",
+answers:["Janji","Aturan","Kebiasaan","Pendapat"],
+correct:"Janji"
+},
+
+{
+question:"Apa arti 理由 ?",
+answers:["Jawaban","Alasan","Penyebab","Tujuan"],
+correct:"Alasan"
+},
+
+{
+question:"Apa arti 方法 ?",
+answers:["Cara / Metode","Kesempatan","Perjalanan","Kebiasaan"],
+correct:"Cara / Metode"
+},
+
+{
+question:"Apa arti 習慣 ?",
+answers:["Kegiatan","Kebiasaan","Peraturan","Pekerjaan"],
+correct:"Kebiasaan"
+},
+
+{
+question:"Apa arti 利用 ?",
+answers:["Penggunaan","Larangan","Peminjaman","Perubahan"],
+correct:"Penggunaan"
+},
+
+{
+question:"Apa arti 確認 ?",
+answers:["Konfirmasi","Penjelasan","Perhatian","Jawaban"],
+correct:"Konfirmasi"
+},
+
+{
+question:"Apa arti 案内 ?",
+answers:["Panduan","Larangan","Kebiasaan","Pelajaran"],
+correct:"Panduan"
+},
+
+{
+question:"Apa arti 招待 ?",
+answers:["Undangan","Pertanyaan","Pekerjaan","Peraturan"],
+correct:"Undangan"
+},
+
+{
+question:"Apa arti 紹介 ?",
+answers:["Perkenalan","Penjelasan","Pengumuman","Kontak"],
+correct:"Perkenalan"
+},
+
+{
+question:"Apa arti 会話 ?",
+answers:["Percakapan","Pidato","Tulisan","Pengumuman"],
+correct:"Percakapan"
+},
+
+{
+question:"Apa arti 相談 ?",
+answers:["Konsultasi","Pertengkaran","Janji","Kesempatan"],
+correct:"Konsultasi"
+},
+
+{
+question:"Apa arti 心配 ?",
+answers:["Kekhawatiran","Kebahagiaan","Kebiasaan","Keberanian"],
+correct:"Kekhawatiran"
+},
+
+{
+question:"Apa arti 安心 ?",
+answers:["Ketenangan","Bahaya","Kesedihan","Kemarahan"],
+correct:"Ketenangan"
+},
+
+{
+question:"Apa arti 危険 ?",
+answers:["Keselamatan","Bahaya","Keamanan","Kebahagiaan"],
+correct:"Bahaya"
+},
+
+{
+question:"Apa arti 故障 ?",
+answers:["Kerusakan","Perbaikan","Perjalanan","Kesalahan"],
+correct:"Kerusakan"
+},
+
+{
+question:"Apa arti 修理 ?",
+answers:["Perbaikan","Kerusakan","Perubahan","Pembuatan"],
+correct:"Perbaikan"
+},
+
+{
+question:"Apa arti 機会 ?",
+answers:["Kesempatan","Pengalaman","Harapan","Tujuan"],
+correct:"Kesempatan"
+},
+
+{
+question:"Apa arti 成功 ?",
+answers:["Kegagalan","Kesuksesan","Kesalahan","Pengalaman"],
+correct:"Kesuksesan"
+},
+
+{
+question:"Apa arti 失敗 ?",
+answers:["Keberhasilan","Kegagalan","Kesempatan","Jawaban"],
+correct:"Kegagalan"
+},
+
+{
+question:"Apa arti 変化 ?",
+answers:["Perubahan","Kebiasaan","Pengalaman","Kegiatan"],
+correct:"Perubahan"
+},
+
+{
+question:"Apa arti 増える ?",
+answers:["Berkurang","Bertambah","Berubah","Menghilang"],
+correct:"Bertambah"
+},
+
+{
+question:"Apa arti 減る ?",
+answers:["Meningkat","Berkurang","Bertambah","Berubah"],
+correct:"Berkurang"
+},
+
+{
+question:"Apa arti 選ぶ ?",
+answers:["Memilih","Membuang","Membeli","Menggunakan"],
+correct:"Memilih"
+},
+
+{
+question:"Apa arti 決める ?",
+answers:["Memutuskan","Menjelaskan","Membandingkan","Mengingat"],
+correct:"Memutuskan"
+},
+
+{
+question:"Apa arti 続ける ?",
+answers:["Menghentikan","Melanjutkan","Memulai","Mengubah"],
+correct:"Melanjutkan"
+},
+
+{
+question:"Apa arti 比較 ?",
+answers:["Perbandingan","Kesimpulan","Penjelasan","Pendapat"],
+correct:"Perbandingan"
+},
+
+{
+question:"Apa arti 調べる ?",
+answers:["Meneliti","Menulis","Membaca","Mengingat"],
+correct:"Meneliti"
+},
+
+{
+question:"Apa arti 増加 ?",
+answers:["Penurunan","Peningkatan","Kesalahan","Perubahan"],
+correct:"Peningkatan"
+},
+
+{
+question:"Apa arti 減少 ?",
+answers:["Perubahan","Pengurangan","Perkembangan","Kesempatan"],
+correct:"Pengurangan"
+},
+
+{
+question:"Apa arti 交通 ?",
+answers:["Transportasi","Komunikasi","Pendidikan","Perdagangan"],
+correct:"Transportasi"
+},
+
+{
+question:"Apa arti 事故 ?",
+answers:["Kecelakaan","Keberhasilan","Kesalahan","Kerusakan"],
+correct:"Kecelakaan"
+},
+
+{
+question:"Apa arti 道路 ?",
+answers:["Jalan raya","Jembatan","Gedung","Taman"],
+correct:"Jalan raya"
+},
+
+{
+question:"Apa arti 生活 ?",
+answers:["Kehidupan","Pendidikan","Kesehatan","Perjalanan"],
+correct:"Kehidupan"
+},
+
+{
+question:"Apa arti 収入 ?",
+answers:["Pengeluaran","Pendapatan","Tabungan","Investasi"],
+correct:"Pendapatan"
+},
+
+{
+question:"Apa arti 支出 ?",
+answers:["Pendapatan","Pengeluaran","Keuntungan","Kerugian"],
+correct:"Pengeluaran"
+},
+
+{
+question:"Apa arti 貯金 ?",
+answers:["Utang","Tabungan","Pembayaran","Investasi"],
+correct:"Tabungan"
+},
+
+{
+question:"Apa arti 将来 ?",
+answers:["Masa lalu","Masa depan","Sekarang","Kenangan"],
+correct:"Masa depan"
+},
+
+{
+question:"Apa arti 未来 ?",
+answers:["Sejarah","Masa depan","Tradisi","Budaya"],
+correct:"Masa depan"
+},
+
+{
+question:"Apa arti 過去 ?",
+answers:["Sekarang","Masa lalu","Masa depan","Kenangan"],
+correct:"Masa lalu"
+},
+
+{
+question:"Apa arti 現在 ?",
+answers:["Masa depan","Sekarang","Masa lalu","Perubahan"],
+correct:"Sekarang"
+},
+
+{
+question:"Apa arti 最近 ?",
+answers:["Baru-baru ini","Dahulu","Besok","Nanti"],
+correct:"Baru-baru ini"
+},
+
+{
+question:"Apa arti 普通 ?",
+answers:["Khusus","Biasa","Aneh","Langka"],
+correct:"Biasa"
+}
+
+],
+
+N2:[
+
+{
+question:"Apa arti 政治 ?",
+answers:["Ekonomi","Politik","Budaya","Teknologi"],
+correct:"Politik"
+},
+
+{
+question:"Apa arti 環境 ?",
+answers:["Lingkungan","Pendidikan","Kesehatan","Perusahaan"],
+correct:"Lingkungan"
+},
+
+{
+question:"Apa arti 発展 ?",
+answers:["Perkembangan","Kemunduran","Perubahan","Penyakit"],
+correct:"Perkembangan"
+},
+
+{
+question:"Apa arti 国際 ?",
+answers:["Domestik","Internasional","Tradisional","Modern"],
+correct:"Internasional"
+},
+
+{
+question:"Apa arti 競争 ?",
+answers:["Kerja sama","Persaingan","Pendidikan","Komunikasi"],
+correct:"Persaingan"
+},
+
+{
+question:"Apa arti 解決 ?",
+answers:["Masalah","Jawaban","Penyelesaian","Pertanyaan"],
+correct:"Penyelesaian"
+},
+
+{
+question:"Apa arti 経済 ?",
+answers:["Ekonomi","Politik","Hukum","Budaya"],
+correct:"Ekonomi"
+},
+
+{
+question:"Apa arti 責任 ?",
+answers:["Hak","Tanggung jawab","Harapan","Tujuan"],
+correct:"Tanggung jawab"
+},
+
+{
+question:"Apa arti 技術 ?",
+answers:["Seni","Teknologi","Olahraga","Budaya"],
+correct:"Teknologi"
+},
+
+{
+question:"Apa arti 制度 ?",
+answers:["Sistem","Keputusan","Pekerjaan","Kegiatan"],
+correct:"Sistem"
+},
+
+{
+question:"Apa arti 経験 ?",
+answers:["Pengalaman","Pendidikan","Latihan","Penelitian"],
+correct:"Pengalaman"
+},
+
+{
+question:"Apa arti 調査 ?",
+answers:["Pemeriksaan","Penelitian","Penyelesaian","Perdebatan"],
+correct:"Penelitian"
+},
+
+{
+question:"Apa arti 増加 ?",
+answers:["Penurunan","Peningkatan","Perubahan","Kehilangan"],
+correct:"Peningkatan"
+},
+
+{
+question:"Apa arti 減少 ?",
+answers:["Pertumbuhan","Pengurangan","Perbaikan","Kemajuan"],
+correct:"Pengurangan"
+},
+
+{
+question:"Apa arti 消費 ?",
+answers:["Produksi","Konsumsi","Distribusi","Penjualan"],
+correct:"Konsumsi"
+},
+
+{
+question:"Apa arti 生産 ?",
+answers:["Penjualan","Produksi","Perdagangan","Pengiriman"],
+correct:"Produksi"
+},
+
+{
+question:"Apa arti 貿易 ?",
+answers:["Perdagangan","Pendidikan","Teknologi","Politik"],
+correct:"Perdagangan"
+},
+
+{
+question:"Apa arti 企業 ?",
+answers:["Perusahaan","Sekolah","Rumah sakit","Bank"],
+correct:"Perusahaan"
+},
+
+{
+question:"Apa arti 産業 ?",
+answers:["Industri","Pertanian","Bisnis","Perdagangan"],
+correct:"Industri"
+},
+
+{
+question:"Apa arti 資源 ?",
+answers:["Sumber daya","Energi","Lingkungan","Bahan bakar"],
+correct:"Sumber daya"
+},
+
+{
+question:"Apa arti 教育 ?",
+answers:["Pendidikan","Pelatihan","Pengajaran","Penelitian"],
+correct:"Pendidikan"
+},
+
+{
+question:"Apa arti 文化 ?",
+answers:["Budaya","Tradisi","Sejarah","Bahasa"],
+correct:"Budaya"
+},
+
+{
+question:"Apa arti 歴史 ?",
+answers:["Geografi","Sejarah","Budaya","Politik"],
+correct:"Sejarah"
+},
+
+{
+question:"Apa arti 法律 ?",
+answers:["Aturan","Hukum","Keadilan","Peraturan"],
+correct:"Hukum"
+},
+
+{
+question:"Apa arti 犯罪 ?",
+answers:["Kejahatan","Kesalahan","Peraturan","Hukuman"],
+correct:"Kejahatan"
+},
+
+{
+question:"Apa arti 安全 ?",
+answers:["Bahaya","Keamanan","Keselamatan","Perlindungan"],
+correct:"Keamanan"
+},
+
+{
+question:"Apa arti 危険 ?",
+answers:["Keselamatan","Bahaya","Keamanan","Kecelakaan"],
+correct:"Bahaya"
+},
+
+{
+question:"Apa arti 医療 ?",
+answers:["Kesehatan","Perawatan medis","Rumah sakit","Dokter"],
+correct:"Perawatan medis"
+},
+
+{
+question:"Apa arti 健康 ?",
+answers:["Kesehatan","Olahraga","Penyakit","Obat"],
+correct:"Kesehatan"
+},
+
+{
+question:"Apa arti 治療 ?",
+answers:["Pemeriksaan","Pengobatan","Operasi","Diagnosis"],
+correct:"Pengobatan"
+},
+
+{
+question:"Apa arti 感情 ?",
+answers:["Pikiran","Perasaan","Pendapat","Harapan"],
+correct:"Perasaan"
+},
+
+{
+question:"Apa arti 性格 ?",
+answers:["Karakter","Kebiasaan","Sifat","Perasaan"],
+correct:"Karakter"
+},
+
+{
+question:"Apa arti 関係 ?",
+answers:["Hubungan","Persahabatan","Pertemuan","Komunikasi"],
+correct:"Hubungan"
+},
+
+{
+question:"Apa arti 協力 ?",
+answers:["Persaingan","Kerja sama","Perdebatan","Pertarungan"],
+correct:"Kerja sama"
+},
+
+{
+question:"Apa arti 会議 ?",
+answers:["Diskusi","Rapat","Presentasi","Pidato"],
+correct:"Rapat"
+},
+
+{
+question:"Apa arti 提案 ?",
+answers:["Usulan","Keputusan","Jawaban","Penjelasan"],
+correct:"Usulan"
+},
+
+{
+question:"Apa arti 意見 ?",
+answers:["Pendapat","Kritik","Jawaban","Masalah"],
+correct:"Pendapat"
+},
+
+{
+question:"Apa arti 選択 ?",
+answers:["Pilihan","Keputusan","Kesempatan","Jawaban"],
+correct:"Pilihan"
+},
+
+{
+question:"Apa arti 判断 ?",
+answers:["Penjelasan","Penilaian","Pemikiran","Pengalaman"],
+correct:"Penilaian"
+},
+
+{
+question:"Apa arti 努力 ?",
+answers:["Bakat","Usaha","Keberuntungan","Kemenangan"],
+correct:"Usaha"
+},
+
+{
+question:"Apa arti 成功 ?",
+answers:["Kegagalan","Kesuksesan","Pengalaman","Harapan"],
+correct:"Kesuksesan"
+},
+
+{
+question:"Apa arti 失敗 ?",
+answers:["Kesalahan","Kegagalan","Kecelakaan","Masalah"],
+correct:"Kegagalan"
+},
+
+{
+question:"Apa arti 希望 ?",
+answers:["Ketakutan","Harapan","Impian","Tujuan"],
+correct:"Harapan"
+},
+
+{
+question:"Apa arti 夢 ?",
+answers:["Tujuan","Impian","Harapan","Keinginan"],
+correct:"Impian"
+},
+
+{
+question:"Apa arti 現実 ?",
+answers:["Mimpi","Kenyataan","Harapan","Kebohongan"],
+correct:"Kenyataan"
+},
+
+{
+question:"Apa arti 自由 ?",
+answers:["Aturan","Kebebasan","Kewajiban","Tanggung jawab"],
+correct:"Kebebasan"
+},
+
+{
+question:"Apa arti 平等 ?",
+answers:["Perbedaan","Kesetaraan","Persaingan","Keadilan"],
+correct:"Kesetaraan"
+},
+
+{
+question:"Apa arti 差別 ?",
+answers:["Persamaan","Diskriminasi","Persaingan","Perbedaan"],
+correct:"Diskriminasi"
+},
+
+{
+question:"Apa arti 情報 ?",
+answers:["Komunikasi","Informasi","Berita","Pengetahuan"],
+correct:"Informasi"
+},
+
+{
+question:"Apa arti 通信 ?",
+answers:["Transportasi","Komunikasi","Informasi","Hubungan"],
+correct:"Komunikasi"
+}
+
+],
+
+N1:[
+
+{
+question:"Apa arti 哲学 ?",
+answers:["Filsafat","Psikologi","Sosiologi","Ekonomi"],
+correct:"Filsafat"
+},
+
+{
+question:"Apa arti 抽象的 ?",
+answers:["Konkret","Abstrak","Nyata","Sederhana"],
+correct:"Abstrak"
+},
+
+{
+question:"Apa arti 概念 ?",
+answers:["Kesimpulan","Konsep","Teori","Pendapat"],
+correct:"Konsep"
+},
+
+{
+question:"Apa arti 本質 ?",
+answers:["Permukaan","Inti","Masalah","Kesempatan"],
+correct:"Inti"
+},
+
+{
+question:"Apa arti 仮定 ?",
+answers:["Kesimpulan","Asumsi","Jawaban","Harapan"],
+correct:"Asumsi"
+},
+
+{
+question:"Apa arti 論理 ?",
+answers:["Logika","Budaya","Tradisi","Ekonomi"],
+correct:"Logika"
+},
+
+{
+question:"Apa arti 認識 ?",
+answers:["Pemahaman","Kesalahan","Perubahan","Hubungan"],
+correct:"Pemahaman"
+},
+
+{
+question:"Apa arti 価値観 ?",
+answers:["Kepercayaan","Pandangan nilai","Tujuan","Budaya"],
+correct:"Pandangan nilai"
+},
+
+{
+question:"Apa arti 多様性 ?",
+answers:["Persamaan","Keberagaman","Perbedaan","Perubahan"],
+correct:"Keberagaman"
+},
+
+{
+question:"Apa arti 影響 ?",
+answers:["Pengaruh","Kesempatan","Hubungan","Kebiasaan"],
+correct:"Pengaruh"
+},
+
+{
+question:"Apa arti 矛盾 ?",
+answers:["Keselarasan","Kontradiksi","Persetujuan","Pendapat"],
+correct:"Kontradiksi"
+},
+
+{
+question:"Apa arti 直感 ?",
+answers:["Logika","Intuisi","Analisis","Teori"],
+correct:"Intuisi"
+},
+
+{
+question:"Apa arti 洞察 ?",
+answers:["Kesalahan","Wawasan","Perasaan","Penjelasan"],
+correct:"Wawasan"
+},
+
+{
+question:"Apa arti 思考 ?",
+answers:["Pemikiran","Tulisan","Ingatan","Keputusan"],
+correct:"Pemikiran"
+},
+
+{
+question:"Apa arti 主観 ?",
+answers:["Objektif","Subjektif","Kesimpulan","Pengaruh"],
+correct:"Subjektif"
+},
+
+{
+question:"Apa arti 客観 ?",
+answers:["Subjektif","Objektif","Pendapat","Asumsi"],
+correct:"Objektif"
+},
+
+{
+question:"Apa arti 仮説 ?",
+answers:["Hipotesis","Jawaban","Data","Penelitian"],
+correct:"Hipotesis"
+},
+
+{
+question:"Apa arti 根拠 ?",
+answers:["Alasan / Dasar","Kebiasaan","Kesimpulan","Keputusan"],
+correct:"Alasan / Dasar"
+},
+
+{
+question:"Apa arti 証明 ?",
+answers:["Penjelasan","Bukti","Pendapat","Teori"],
+correct:"Bukti"
+},
+
+{
+question:"Apa arti 統計 ?",
+answers:["Perhitungan","Statistik","Grafik","Data"],
+correct:"Statistik"
+},
+
+{
+question:"Apa arti 分析 ?",
+answers:["Analisis","Kesimpulan","Hipotesis","Pengamatan"],
+correct:"Analisis"
+},
+
+{
+question:"Apa arti 批判 ?",
+answers:["Pujian","Kritik","Dukungan","Perintah"],
+correct:"Kritik"
+},
+
+{
+question:"Apa arti 解釈 ?",
+answers:["Terjemahan","Penafsiran","Perubahan","Perdebatan"],
+correct:"Penafsiran"
+},
+
+{
+question:"Apa arti 進化 ?",
+answers:["Revolusi","Perkembangan Evolusi","Kemunduran","Perubahan"],
+correct:"Perkembangan Evolusi"
+},
+
+{
+question:"Apa arti 現象 ?",
+answers:["Fenomena","Masalah","Kebiasaan","Kesempatan"],
+correct:"Fenomena"
+},
+
+{
+question:"Apa arti 無意識 ?",
+answers:["Kesadaran","Bawah sadar","Pemikiran","Insting"],
+correct:"Bawah sadar"
+},
+
+{
+question:"Apa arti 潜在能力 ?",
+answers:["Kemampuan tersembunyi","Kecerdasan","Kekuatan","Pengalaman"],
+correct:"Kemampuan tersembunyi"
+},
+
+{
+question:"Apa arti 欲望 ?",
+answers:["Harapan","Keinginan","Ketakutan","Keputusan"],
+correct:"Keinginan"
+},
+
+{
+question:"Apa arti 葛藤 ?",
+answers:["Kedamaian","Konflik batin","Kemenangan","Perdebatan"],
+correct:"Konflik batin"
+},
+
+{
+question:"Apa arti 倫理 ?",
+answers:["Etika","Logika","Tradisi","Aturan"],
+correct:"Etika"
+},
+
+{
+question:"Apa arti 道徳 ?",
+answers:["Moral","Budaya","Kebiasaan","Hukum"],
+correct:"Moral"
+},
+
+{
+question:"Apa arti 責任 ?",
+answers:["Kebebasan","Tanggung jawab","Kesempatan","Peraturan"],
+correct:"Tanggung jawab"
+},
+
+{
+question:"Apa arti 権利 ?",
+answers:["Hukuman","Hak","Aturan","Kekuasaan"],
+correct:"Hak"
+},
+
+{
+question:"Apa arti 義務 ?",
+answers:["Pilihan","Kewajiban","Harapan","Keputusan"],
+correct:"Kewajiban"
+},
+
+{
+question:"Apa arti 制度 ?",
+answers:["Sistem","Perubahan","Kesimpulan","Peraturan"],
+correct:"Sistem"
+},
+
+{
+question:"Apa arti 政策 ?",
+answers:["Kebijakan","Pendapat","Teori","Janji"],
+correct:"Kebijakan"
+},
+
+{
+question:"Apa arti 経済 ?",
+answers:["Politik","Ekonomi","Budaya","Sejarah"],
+correct:"Ekonomi"
+},
+
+{
+question:"Apa arti 金融 ?",
+answers:["Keuangan","Pendidikan","Perdagangan","Perusahaan"],
+correct:"Keuangan"
+},
+
+{
+question:"Apa arti 投資 ?",
+answers:["Tabungan","Investasi","Pinjaman","Perdagangan"],
+correct:"Investasi"
+},
+
+{
+question:"Apa arti 市場 ?",
+answers:["Pasar","Perusahaan","Pabrik","Gudang"],
+correct:"Pasar"
+},
+
+{
+question:"Apa arti 競争 ?",
+answers:["Kerjasama","Persaingan","Pertemanan","Hubungan"],
+correct:"Persaingan"
+},
+
+{
+question:"Apa arti 革命 ?",
+answers:["Perubahan besar / Revolusi","Perbaikan","Pembangunan","Penelitian"],
+correct:"Perubahan besar / Revolusi"
+},
+
+{
+question:"Apa arti 文明 ?",
+answers:["Budaya","Peradaban","Bahasa","Masyarakat"],
+correct:"Peradaban"
+},
+
+{
+question:"Apa arti 伝統 ?",
+answers:["Kebiasaan","Tradisi","Peraturan","Budaya asing"],
+correct:"Tradisi"
+},
+
+{
+question:"Apa arti 宗教 ?",
+answers:["Politik","Agama","Budaya","Pendidikan"],
+correct:"Agama"
+},
+
+{
+question:"Apa arti 心理学 ?",
+answers:["Sosiologi","Psikologi","Ekonomi","Filsafat"],
+correct:"Psikologi"
+},
+
+{
+question:"Apa arti 社会学 ?",
+answers:["Psikologi","Sosiologi","Politik","Ekonomi"],
+correct:"Sosiologi"
+},
+
+{
+question:"Apa arti 言語学 ?",
+answers:["Ilmu bahasa","Matematika","Biologi","Sejarah"],
+correct:"Ilmu bahasa"
+},
+
+{
+question:"Apa arti 宇宙 ?",
+answers:["Planet","Alam semesta","Langit","Bintang"],
+correct:"Alam semesta"
+},
+
+{
+question:"Apa arti 永遠 ?",
+answers:["Sesaat","Keabadian","Perubahan","Masa depan"],
+correct:"Keabadian"
+}
+
+]
+
+};
+
+/* =========================
+   VARIABLE
+========================= */
+
+let currentLevel = "";
+let currentQuestion = 0;
+let score = 0;
+
+/* =========================
+   START TEST
+========================= */
+
+function startJLPT(){
+
+    currentLevel = document.getElementById("levelSelect").value;
+
+    if(currentLevel === "") return;
+
+    currentQuestion = 0;
+    score = 0;
+
+    document.getElementById("jlptBox").style.display = "block";
+
+    loadQuestion();
+}
+
+/* =========================
+   LOAD QUESTION
+========================= */
+
+function loadQuestion(){
+
+    const data = jlptData[currentLevel][currentQuestion];
+
+    document.getElementById("jlptQuestion").innerHTML =
+    `(${currentQuestion+1}/50) ${data.question}`;
+
+    const answerBox = document.getElementById("jlptAnswers");
+
+    answerBox.innerHTML = "";
+
+    data.answers.forEach(answer=>{
+
+        answerBox.innerHTML += `
+            <button onclick="checkJLPT('${answer}')">
+                ${answer}
+            </button>
+        `;
+    });
+
+    document.getElementById("jlptResult").innerHTML = "";
+    document.getElementById("nextBtn").style.display = "none";
+}
+
+/* =========================
+   CHECK ANSWER
+========================= */
+
+function checkJLPT(answer){
+
+    const data = jlptData[currentLevel][currentQuestion];
+
+    const result = document.getElementById("jlptResult");
+
+    if(answer === data.correct){
+
+        result.innerHTML = "✅ Benar!";
+        result.style.color = "green";
+        score++;
+
+    }else{
+
+        result.innerHTML =
+        `❌ Salah! Jawaban benar: ${data.correct}`;
+
+        result.style.color = "red";
+    }
+
+    document.getElementById("nextBtn").style.display = "block";
+}
+
+/* =========================
+   NEXT QUESTION
+========================= */
+
+function nextQuestion(){
+
+    currentQuestion++;
+
+    if(currentQuestion >= 10){
+
+        document.getElementById("jlptQuestion").innerHTML =
+        `🎉 Test selesai!`;
+
+        document.getElementById("jlptAnswers").innerHTML = `
+            <h3>Score Kamu: ${score}/10</h3>
+        `;
+
+        document.getElementById("jlptResult").innerHTML = "";
+
+        document.getElementById("nextBtn").style.display = "none";
+
+        return;
+    }
+
+    loadQuestion();
+}
 
 </script>
 
