@@ -274,6 +274,28 @@
 
 <audio id="youkosoSound" src="youkoso.mp3"></audio>
 <audio id="bgMusic" src="backsound.mp3" loop></audio>
+<div id="sideMenu">
+
+    <h3>⚙️ Settings</h3>
+
+    <button onclick="toggleMusic()">🎶 Music</button>
+    <button onclick="toggleTheme()">🌙 / ☀️ Theme</button>
+
+    <hr>
+
+    <p id="menuAchievement">🏆 Prestasi: -</p>
+    <p id="menuTime">⏱ Waktu: 0 menit</p>
+
+    <hr>
+
+    <!-- 🐞 BUG REPORT -->
+    <h4>🐞 Report Bug</h4>
+
+    <textarea id="bugText" placeholder="Tulis masalah di sini..."></textarea>
+
+    <button onclick="submitBug()">Kirim Laporan</button>
+
+</div>
 
 <header>
     <h1>🇯🇵 Belajar Bahasa Jepang Lengkap</h1>
@@ -7516,7 +7538,7 @@ function updateCalendar(){
     <!-- BUAT MUNCULIN NOTIFIKASI UPDATEI -->
     <!-- ===================================== -->
     
-const CURRENT_VERSION = "1.0.2";
+const CURRENT_VERSION = "1.0.3";
 
 async function checkUpdate(){
 
@@ -7586,6 +7608,41 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(updateTimeSpent, 60000);
 
 });
+
+function submitBug(){
+
+    const text = document.getElementById("bugText").value;
+
+    if(!text.trim()){
+        alert("Isi dulu laporannya!");
+        return;
+    }
+
+    let bugs = JSON.parse(localStorage.getItem("bugReports")) || [];
+
+    bugs.push({
+        message: text,
+        time: new Date().toISOString()
+    });
+
+    localStorage.setItem("bugReports", JSON.stringify(bugs));
+
+    document.getElementById("bugText").value = "";
+
+    alert("🐞 Laporan terkirim! Terima kasih 🙏");
+}
+
+function showBugs(){
+
+    let bugs = JSON.parse(localStorage.getItem("bugReports")) || [];
+
+    console.log("🐞 BUG REPORTS:");
+
+    bugs.forEach((b, i) => {
+        console.log(i+1, b.message, b.time);
+    });
+
+}
 
 function saveStudyDay(){
 
