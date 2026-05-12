@@ -233,6 +233,7 @@
 <body>
 
 <audio id="youkosoSound" src="youkoso.mp3"></audio>
+<audio id="bgMusic" src="backsound.mp3" loop></audio>
 
 <header>
     <h1>🇯🇵 Belajar Bahasa Jepang Lengkap</h1>
@@ -7400,6 +7401,17 @@ function playYoukoso(){
 
 }
 
+function bgMusic(){
+
+    const music = document.getElementById("bgMusic");
+
+    music.volume = 0.3; // jangan terlalu keras
+    music.play().catch(err => {
+        console.log("Autoplay blocked:", err);
+    });
+
+}
+
 window.addEventListener("load", () => {
 
     const audio = document.getElementById("youkosoSound");
@@ -7433,7 +7445,7 @@ window.addEventListener("load", () => {
         playYoukoso();
 
         // 🎶 background music
-        if (typeof playBGM === "function") playBGM();
+        if (typeof bgMusic === "function") bgMusic();
 
     }, 6000);
 
