@@ -159,72 +159,69 @@
     z-index:9999;
 }
 
-/* animasi spinner */
-.loader {
-    width: 50px;
-    height: 50px;
-    border: 6px solid #444;
-    border-top: 6px solid #fff;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin-bottom:10px;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-#splashScreen{
+#loadingScreen{
     position: fixed;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, #1a1a1a, #000);
+    background: radial-gradient(circle, #2b2b3c, #000);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 10000;
+    z-index: 9999;
     color: white;
-    overflow: hidden;
+    font-family: sans-serif;
 }
 
-.splashContent{
+.cuteLoader{
     text-align: center;
-    animation: popIn 1.2s ease;
 }
 
-.splashContent h1{
-    font-size: 60px;
-    margin: 0;
-    letter-spacing: 5px;
-    color: #ff3b3b;
-    text-shadow: 0 0 20px #ff0000;
+/* 😺 CAT ANIMATION SIMPLE */
+.cat{
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    background: #fff;
+    border-radius: 50%;
+    position: relative;
+    animation: bounce 1s infinite;
 }
 
-.splashContent p{
-    font-size: 20px;
-    letter-spacing: 10px;
-    color: #ffffff;
+/* telinga */
+.cat::before,
+.cat::after{
+    content:"";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    top: -10px;
+    border-radius: 50%;
+}
+
+.cat::before{ left: 10px; }
+.cat::after{ right: 10px; }
+
+@keyframes bounce{
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.cuteLoader p{
+    margin-top: 15px;
+    font-size: 14px;
     opacity: 0.8;
-}
-
-@keyframes popIn {
-    0% {
-        transform: scale(0.5);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
+    letter-spacing: 1px;
 }
 
 </style>
 </head>
 
 <div id="loadingScreen">
-    <div class="loader"></div>
-    <p>Loading...</p>
+    <div class="cuteLoader">
+        <div class="cat"></div>
+        <p>Mohon Tunggu Sebentar...</p>
+    </div>
 </div>
 
 <div id="splashScreen">
@@ -7407,7 +7404,7 @@ window.addEventListener("load", () => {
 
     const audio = document.getElementById("youkosoSound");
 
-    // unlock audio
+    // 🔓 unlock audio
     const unlockAudio = () => {
         if(!audio) return;
 
@@ -7419,16 +7416,23 @@ window.addEventListener("load", () => {
 
     document.addEventListener("click", unlockAudio, { once: true });
 
-    playYoukoso();
-
     setTimeout(() => {
 
-        document.getElementById("loadingScreen").style.display = "none";
-        document.getElementById("splashScreen").style.display = "none";
+        // hide loading
+        const loading = document.getElementById("loadingScreen");
+        if(loading) loading.style.display = "none";
 
+        // hide splash
+        const splash = document.getElementById("splashScreen");
+        if(splash) splash.style.display = "none";
+
+        // start quiz
         loadDailyQuiz();
         updateAchievement();
 
+        playYoukoso();
+
+        // 🎶 background music
         if (typeof playBGM === "function") playBGM();
 
     }, 6000);
