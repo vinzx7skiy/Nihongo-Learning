@@ -7394,6 +7394,8 @@ function playYoukoso(){
 
     const audio = document.getElementById("youkosoSound");
 
+    if(!audio) return;
+
     audio.currentTime = 0;
     audio.play().catch(err => {
         console.log("Audio blocked:", err);
@@ -7401,24 +7403,40 @@ function playYoukoso(){
 
 }
 
-document.addEventListener("click", () => {
-    const audio = document.getElementById("youkosoSound");
-    audio.play().catch(()=>{});
-}, { once: true });
-
 window.addEventListener("load", () => {
+
+    const audio = document.getElementById("youkosoSound");
+
+    // 🔓 unlock audio
+    const unlockAudio = () => {
+        if(!audio) return;
+
+        audio.play().then(() => {
+            audio.pause();
+            audio.currentTime = 0;
+        }).catch(()=>{});
+    };
+
+    document.addEventListener("click", unlockAudio, { once: true });
 
     setTimeout(() => {
 
-        // hide loading screen (kalau masih ada)
+        // hide loading
         const loading = document.getElementById("loadingScreen");
         if(loading) loading.style.display = "none";
 
-        // hide splash screen
-        document.getElementById("splashScreen").style.display = "none";
+        // hide splash
+        const splash = document.getElementById("splashScreen");
+        if(splash) splash.style.display = "none";
 
-        // mainkan suara
+        // start quiz
+        loadDailyQuiz();
+        updateAchievement();
+
         playYoukoso();
+
+        // 🎶 background music
+        if (typeof playBGM === "function") playBGM();
 
     }, 6000);
 
