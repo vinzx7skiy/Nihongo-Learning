@@ -587,6 +587,8 @@
     <h2>🎮 Quiz Harian</h2>
 
     <div class="quiz-box">
+    
+    <div id="timer"></div>
 
         <h3 id="question">
             Loading Quiz...
@@ -5625,8 +5627,10 @@ function updateAchievement(){
 ========================= */
 
 loadDailyQuiz();
-
 updateAchievement();
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
 
 /* =========================
    DATA SOAL JLPT
@@ -7262,6 +7266,23 @@ function nextQuestion(){
     }
 
     loadQuestion();
+}
+
+function updateCountdown(){
+
+    const now = new Date();
+
+    const nextDay = new Date();
+    nextDay.setHours(24,0,0,0); // reset jam 00:00
+
+    const diff = nextDay - now;
+
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById("timer").innerHTML =
+        `⏳ Quiz baru dalam: ${hours}h ${minutes}m ${seconds}s`;
 }
 
 </script>
