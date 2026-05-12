@@ -7512,6 +7512,10 @@ function updateCalendar(){
     }
 }
 
+    <!-- ===================================== -->
+    <!-- BUAT MUNCULIN NOTIFIKASI UPDATEI -->
+    <!-- ===================================== -->
+    
 const CURRENT_VERSION = "1.0.2";
 
 async function checkUpdate(){
@@ -7580,6 +7584,47 @@ document.addEventListener("DOMContentLoaded", () => {
     updateTimeSpent();
 
     setInterval(updateTimeSpent, 60000);
+
+});
+
+function askNotificationPermission(){
+
+    if("Notification" in window){
+
+        Notification.requestPermission().then(permission => {
+            console.log("Permission:", permission);
+        });
+
+    }
+
+}
+
+function sendNotification(title, message){
+
+    if(Notification.permission === "granted"){
+
+        new Notification(title, {
+            body: message,
+            icon: "icon.png" // optional
+        });
+
+    }
+
+}
+
+if(data.version !== CURRENT_VERSION){
+
+    showUpdatePopup(data.message);
+
+    sendNotification(
+        "🔔 Update Baru!",
+        data.message
+    );
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    askNotificationPermission();
 
 });
 
