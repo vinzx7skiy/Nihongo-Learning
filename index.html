@@ -7412,26 +7412,37 @@ function bgMusic(){
 
 }
 
+let audioUnlocked = false;
+
 window.addEventListener("load", () => {
 
     const youkoso = document.getElementById("youkosoSound");
     const music = document.getElementById("bgMusic");
 
-    // 🔓 unlock semua audio
-    const unlockAudio = () => {
+    // 🔓 unlock audio diam-diam (WAJIB)
+    const unlock = async () => {
+        try {
 
-        [youkoso, music].forEach(a => {
-            if(!a) return;
+            if(youkoso){
+                await youkoso.play();
+                youkoso.pause();
+                youkoso.currentTime = 0;
+            }
 
-            a.play().then(() => {
-                a.pause();
-                a.currentTime = 0;
-            }).catch(()=>{});
-        });
+            if(music){
+                await music.play();
+                music.pause();
+                music.currentTime = 0;
+            }
 
+            audioUnlocked = true;
+
+        } catch(e){
+            console.log("unlock gagal", e);
+        }
     };
 
-    document.addEventListener("click", unlockAudio, { once: true });
+    unlock();
 
     setTimeout(() => {
 
@@ -7441,10 +7452,18 @@ window.addEventListener("load", () => {
         loadDailyQuiz();
         updateAchievement();
 
-        playYoukoso();
+        // 🔊 SUARA MUNCUL SETELAH LOADING
+        if(audioUnlocked && youkoso){
+            youkoso.currentTime = 0;
+            youkoso.play().catch(()=>{});
+        }
 
+        // 🎶 BG MUSIC MASUK SETELAHNYA
         setTimeout(() => {
-            bgMusic();
+            if(audioUnlocked && music){
+                music.volume = 0.3;
+                music.play().catch(()=>{});
+            }
         }, 800);
 
     }, 6000);
