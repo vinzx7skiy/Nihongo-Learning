@@ -7530,7 +7530,7 @@ function showUpdatePopup(message){
     const box = document.createElement("div");
 
     box.innerHTML = `
-        <div style="
+        <div id="updatePopup" style="
             position:fixed;
             top:20px;
             left:50%;
@@ -7540,13 +7540,37 @@ function showUpdatePopup(message){
             padding:15px;
             border-radius:10px;
             z-index:99999;
+            min-width:250px;
         ">
+
             🔔 Update Baru! <br><br>
             ${message}
+
+            <br><br>
+
+            <button onclick="closeUpdatePopup()" style="
+                padding:5px 10px;
+                border:none;
+                border-radius:5px;
+                cursor:pointer;
+            ">
+                Tutup
+            </button>
+
         </div>
     `;
 
     document.body.appendChild(box);
+}
+
+function closeUpdatePopup(){
+
+    const popup = document.getElementById("updatePopup");
+
+    if(popup){
+        popup.parentElement.remove();
+    }
+
 }
 
 document.addEventListener("DOMContentLoaded", () => {
