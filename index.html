@@ -214,6 +214,43 @@
     letter-spacing: 1px;
 }
 
+#calendarBox{
+    margin-top: 15px;
+    padding: 10px;
+    background: #1e1e2f;
+    color: white;
+    border-radius: 10px;
+}
+
+#calendar{
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.day{
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    background: #444;
+    color: white;
+}
+
+.day.active{
+    background: #3ddc84;
+    color: black;
+    font-weight: bold;
+}
+
+.day.today{
+    border: 2px solid #ffcc00;
+}
+
 </style>
 </head>
 
@@ -680,6 +717,11 @@
     <div id="timer"></div>
     
     <p id="streakText">🔥 Streak Harian: 0 hari</p>
+    
+    <div id="calendarBox">
+    <h3>📅 Kalender Belajar</h3>
+    <div id="calendar"></div>
+</div>
 
         <h3 id="question">
             Loading Quiz...
@@ -5679,6 +5721,8 @@ function checkAnswer(answer, correct){
     localStorage.setItem("answeredToday", true);
 
     updateAchievement();
+    saveStudyDay();
+    updateCalendar();
 }
 
 /* =========================
@@ -5733,6 +5777,7 @@ function updateAchievement(){
 
 loadDailyQuiz();
 updateAchievement();
+updateCalendar();
 updateStreak();
 
 setInterval(updateCountdown, 1000);
@@ -7423,6 +7468,64 @@ function updateCountdown(){
 
     document.getElementById("timer").innerHTML =
         `⏳ Quiz baru dalam: ${hours}h ${minutes}m ${seconds}s`;
+}
+
+function updateCalendar(){
+
+    const calendar = document.getElementById("calendar");
+    calendar.innerHTML = "";
+
+    let history = JSON.parse(localStorage.getItem("studyHistory")) || [];
+
+    const today = new Date();
+
+    // kita tampilkan 7 hari terakhir
+    for(let i = 6; i >= 0; i--){
+
+        let date = new Date();
+        date.setDate(today.getDate() - i);
+
+        let key =
+            date.getFullYear() + "-" +
+            date.getMonth() + "-" +
+            date.getDate();
+
+        let dayBox = document.createElement("div");
+        dayBox.classList.add("day");
+
+        dayBox.innerText = date.getDate();
+
+        // kalau pernah belajar di hari itu
+        if(history.includes(key)){
+            dayBox.classList.add("active");
+        }
+
+        // hari ini
+        if(i === 0){
+            dayBox.classList.add("today");
+        }
+
+        calendar.appendChild(dayBox);
+    }
+}
+
+function saveStudyDay(){
+
+    const today = new Date();
+
+    const key =
+        today.getFullYear() + "-" +
+        today.getMonth() + "-" +
+        today.getDate();
+
+    let history =
+        JSON.parse(localStorage.getItem("studyHistory")) || [];
+
+    if(!history.includes(key)){
+        history.push(key);
+    }
+
+    localStorage.setItem("studyHistory", JSON.stringify(history));
 }
 
 function playYoukoso(){
