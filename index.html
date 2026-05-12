@@ -7410,17 +7410,16 @@ window.addEventListener("load", () => {
 
     setTimeout(() => {
 
-        // hide loading screen (kalau masih ada)
-        const loading = document.getElementById("loadingScreen");
-        if(loading) loading.style.display = "none";
-
-        // hide splash screen
+        document.getElementById("loadingScreen").style.display = "none";
         document.getElementById("splashScreen").style.display = "none";
 
-        // mainkan suara
-        playYoukoso();
+        loadDailyQuiz();
+        updateAchievement();
 
-    }, 1500);
+        if (typeof playYoukoso === "function") playYoukoso();
+        if (typeof playYoukoso === "function") playYoukoso();
+
+    }, 6000);
 
 });
 </script>
