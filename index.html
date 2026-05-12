@@ -316,8 +316,9 @@ body.light{
 
 <audio id="youkosoSound" src="youkoso.mp3"></audio>
 <audio id="bgMusic" src="backsound.mp3" loop></audio>
-<div id="sideMenu">
+<div id="menuButton" onclick="toggleMenu()">☰</div>
 
+<div id="sideMenu">
     <h3>⚙️ Settings</h3>
 
     <button onclick="toggleMusic()">🎶 Music</button>
@@ -326,8 +327,6 @@ body.light{
 
     <p id="menuAchievement">🏆 Prestasi: -</p>
     <p id="menuTime">⏱ Waktu: 0 menit</p>
-
-    <hr>
 
     <!-- 🐞 BUG REPORT -->
     <h4>🐞 Report Bug</h4>
@@ -7649,6 +7648,49 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(updateTimeSpent, 60000);
 
 });
+
+function updateMenuAchievement(){
+
+    let totalCorrect =
+        parseInt(localStorage.getItem("totalCorrect")) || 0;
+
+    let title = "Beginner";
+
+    if(totalCorrect >= 100) title = "Legendary Nihongo User";
+    else if(totalCorrect >= 75) title = "Kana Grandmaster";
+    else if(totalCorrect >= 50) title = "JLPT Challenger";
+    else if(totalCorrect >= 35) title = "Japanese Explorer";
+    else if(totalCorrect >= 20) title = "Katakana Warrior";
+    else if(totalCorrect >= 10) title = "Hiragana Master";
+    else if(totalCorrect >= 5) title = "Kana Learner";
+
+    document.getElementById("menuAchievement").innerText =
+        "🏆 Prestasi: " + title;
+}
+
+function updateTimeSpent(){
+
+    let start = localStorage.getItem("startTime");
+
+    if(!start){
+        start = Date.now();
+        localStorage.setItem("startTime", start);
+    }
+
+    let now = Date.now();
+    let diff = Math.floor((now - start) / 1000 / 60); // menit
+
+    document.getElementById("menuTime").innerText =
+        "⏱ Waktu: " + diff + " menit";
+}
+
+window.onload = () => {
+
+    updateMenuAchievement();
+    updateTimeSpent();
+
+    setInterval(updateTimeSpent, 60000); // update tiap 1 menit
+};
 
 function submitBug(){
 
