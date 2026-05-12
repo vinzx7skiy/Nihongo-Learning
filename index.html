@@ -224,7 +224,7 @@
 
 <div id="loadingScreen">
     <div class="loader"></div>
-    <p>Loading Quiz...</p>
+    <p>Loading...</p>
 </div>
 
 <div id="splashScreen">
@@ -234,6 +234,8 @@
 </div>
 
 <body>
+
+<audio id="yokosoSound" src="yokoso.mp3"></audio>
 
 <header>
     <h1>🇯🇵 Belajar Bahasa Jepang Lengkap</h1>
@@ -7390,15 +7392,19 @@ function updateCountdown(){
 
 function playYokoso(){
 
-    const msg = new SpeechSynthesisUtterance("ようこそ");
-    msg.lang = "ja-JP";
-    msg.rate = 0.9;
+    const audio = document.getElementById("yokosoSound");
 
-    setTimeout(() => {
-        speechSynthesis.cancel();
-        speechSynthesis.speak(msg);
-    }, 200);
+    audio.currentTime = 0;
+    audio.play().catch(err => {
+        console.log("Audio blocked:", err);
+    });
+
 }
+
+document.addEventListener("click", () => {
+    const audio = document.getElementById("yokosoSound");
+    audio.play().catch(()=>{});
+}, { once: true });
 
 window.addEventListener("load", () => {
 
