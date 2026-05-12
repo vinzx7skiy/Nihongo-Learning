@@ -254,6 +254,48 @@
     border: 2px solid #ffcc00;
 }
 
+/* MENU */
+#menuButton{
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 10001;
+    color: white;
+}
+
+#sideMenu{
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 220px;
+    height: 100%;
+    background: #1e1e2f;
+    color: white;
+    padding: 20px;
+    transition: 0.3s;
+    z-index: 10000;
+}
+
+#sideMenu.open{
+    left: 0;
+}
+
+#sideMenu button{
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+}
+
+/* LIGHT MODE */
+body.light{
+    background: #f5f5f5;
+    color: #111;
+}
+
 </style>
 </head>
 
