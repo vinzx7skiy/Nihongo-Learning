@@ -7470,13 +7470,13 @@ function nextQuestion(){
 
     currentQuestion++;
 
-    if(currentQuestion >= 10){
+    if(currentQuestion >= 50){
 
         document.getElementById("jlptQuestion").innerHTML =
         `🎉 Test selesai!`;
 
         document.getElementById("jlptAnswers").innerHTML = `
-            <h3>Score Kamu: ${score}/10</h3>
+            <h3>Score Kamu: ${score}/50</h3>
         `;
 
         document.getElementById("jlptResult").innerHTML = "";
