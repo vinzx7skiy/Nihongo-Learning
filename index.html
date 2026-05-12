@@ -7390,9 +7390,9 @@ function updateCountdown(){
         `⏳ Quiz baru dalam: ${hours}h ${minutes}m ${seconds}s`;
 }
 
-function playYokoso(){
+function playYoukoso(){
 
-    const audio = document.getElementById("yokosoSound");
+    const audio = document.getElementById("youkosoSound");
 
     audio.currentTime = 0;
     audio.play().catch(err => {
@@ -7418,7 +7418,7 @@ window.addEventListener("load", () => {
         document.getElementById("splashScreen").style.display = "none";
 
         // mainkan suara
-        playYokoso();
+        playYoukoso();
 
     }, 1500);
 
