@@ -143,8 +143,95 @@
         padding:20px;
         margin-top:30px;
     }
+    
+    #loadingScreen{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#111;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+/* animasi spinner */
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 6px solid #444;
+    border-top: 6px solid #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom:10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#splashScreen{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #1a1a1a, #000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    color: white;
+    overflow: hidden;
+}
+
+.splashContent{
+    text-align: center;
+    animation: popIn 1.2s ease;
+}
+
+.splashContent h1{
+    font-size: 60px;
+    margin: 0;
+    letter-spacing: 5px;
+    color: #ff3b3b;
+    text-shadow: 0 0 20px #ff0000;
+}
+
+.splashContent p{
+    font-size: 20px;
+    letter-spacing: 10px;
+    color: #ffffff;
+    opacity: 0.8;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
 </style>
 </head>
+
+<div id="loadingScreen">
+    <div class="loader"></div>
+    <p>Loading Quiz...</p>
+</div>
+
+<div id="splashScreen">
+    <div class="splashContent">
+        <h1>ようこそ</h1>
+    </div>
+</div>
 
 <body>
 
@@ -7293,6 +7380,35 @@ function updateCountdown(){
         `⏳ Quiz baru dalam: ${hours}h ${minutes}m ${seconds}s`;
 }
 
+function playYokoso(){
+
+    const msg = new SpeechSynthesisUtterance("ようこそ");
+    msg.lang = "ja-JP";
+    msg.rate = 0.9;
+
+    setTimeout(() => {
+        speechSynthesis.cancel();
+        speechSynthesis.speak(msg);
+    }, 200);
+}
+
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        // hide loading screen (kalau masih ada)
+        const loading = document.getElementById("loadingScreen");
+        if(loading) loading.style.display = "none";
+
+        // hide splash screen
+        document.getElementById("splashScreen").style.display = "none";
+
+        // mainkan suara
+        playYokoso();
+
+    }, 1500);
+
+});
 </script>
 
 </body>
