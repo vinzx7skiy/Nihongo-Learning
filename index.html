@@ -7414,38 +7414,38 @@ function bgMusic(){
 
 window.addEventListener("load", () => {
 
-    const audio = document.getElementById("youkosoSound");
+    const youkoso = document.getElementById("youkosoSound");
+    const music = document.getElementById("bgMusic");
 
-    // 🔓 unlock audio
+    // 🔓 unlock semua audio
     const unlockAudio = () => {
-        if(!audio) return;
 
-        audio.play().then(() => {
-            audio.pause();
-            audio.currentTime = 0;
-        }).catch(()=>{});
+        [youkoso, music].forEach(a => {
+            if(!a) return;
+
+            a.play().then(() => {
+                a.pause();
+                a.currentTime = 0;
+            }).catch(()=>{});
+        });
+
     };
 
     document.addEventListener("click", unlockAudio, { once: true });
 
     setTimeout(() => {
 
-        // hide loading
-        const loading = document.getElementById("loadingScreen");
-        if(loading) loading.style.display = "none";
+        document.getElementById("loadingScreen").style.display = "none";
+        document.getElementById("splashScreen").style.display = "none";
 
-        // hide splash
-        const splash = document.getElementById("splashScreen");
-        if(splash) splash.style.display = "none";
-
-        // start quiz
         loadDailyQuiz();
         updateAchievement();
 
         playYoukoso();
 
-        // 🎶 background music
-        if (typeof bgMusic === "function") bgMusic();
+        setTimeout(() => {
+            bgMusic();
+        }, 800);
 
     }, 6000);
 
