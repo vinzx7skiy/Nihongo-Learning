@@ -337,6 +337,11 @@ body.light{
 
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  emailjs.init("g-CuOAUNyVw6uqyDe");
+</script>
+
 <header>
     <h1>🇯🇵 Belajar Bahasa Jepang Lengkap</h1>
     <p>Hiragana • Katakana • Dakuten • Handakuten • Yoon • Quiz • Kanji • Kosakata</p>
@@ -7609,7 +7614,7 @@ function showUpdatePopup(message){
             min-width:250px;
         ">
 
-            🔔 Update Baru Versi ${data}! <br><br>
+            🔔 Update Baru Versi ${res}! <br><br>
             ${message}
 
             <br><br>
@@ -7706,18 +7711,20 @@ function submitBug(){
         return;
     }
 
-    let bugs = JSON.parse(localStorage.getItem("bugReports")) || [];
-
-    bugs.push({
+    emailjs.send("SERVICE_ID_KAMU", "TEMPLATE_ID_KAMU", {
         message: text,
-        time: new Date().toISOString()
+        time: new Date().toLocaleString()
+    }).then(() => {
+
+        alert("🐞 Laporan terkirim ke email!");
+
+        document.getElementById("bugText").value = "";
+
+    }).catch(err => {
+        console.log(err);
+        alert("Gagal kirim laporan");
     });
 
-    localStorage.setItem("bugReports", JSON.stringify(bugs));
-
-    document.getElementById("bugText").value = "";
-
-    alert("🐞 Laporan terkirim! Terima kasih 🙏");
 }
 
 function showBugs(){
