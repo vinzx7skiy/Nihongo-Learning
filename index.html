@@ -296,6 +296,13 @@ body.light{
     color: #111;
 }
 
+.testMenu button{
+    padding:10px 15px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
 </style>
 </head>
 
@@ -362,6 +369,7 @@ body.light{
     <button onclick="showSection('minnanonihongo1')">Minna no Nihongo 1</button>
     <button onclick="showSection('budaya')">Budaya</button>
     <button onclick="showSection('kaiwa')">Kaiwa</button>
+    <button onclick="showSection('materitest')">Materi Test</button>
 </nav>
 
 <!-- HIRAGANA -->
@@ -839,7 +847,7 @@ body.light{
 
 <section id="vocab">
 
-    <h2>📚 Kosakata Jepang</h2>
+    <h2>📚 Kosakata</h2>
 
     <div class="card">
 
@@ -1063,7 +1071,7 @@ body.light{
 
 <section id="kanji">
 
-    <h2>🈶 Kanji Dasar</h2>
+    <h2>🈶 Kanji</h2>
 
 <div class="card">
 
@@ -3553,7 +3561,7 @@ body.light{
 
   <section id="particle">
 
-    <h2>🧩 Partikel Dasar Bahasa Jepang</h2>
+    <h2>🧩 Partikel</h2>
 
     <div class="card">
 
@@ -3786,7 +3794,7 @@ body.light{
 
 <section id="grammar">
 
-    <h2>📘 Pola Kalimat Bahasa Jepang</h2>
+    <h2>📘 Pola Kalimat</h2>
 
     <!-- ===================================== -->
     <!-- DESU POSITIF -->
@@ -4593,7 +4601,14 @@ body.light{
 <!-- MINNA NO NIHONGO 1 -->
 <section id="minnanonihongo1">
 
-    <h2>🛑 MASIH DALAM PENGERJAAN</h2>
+    <h2>📕 Minna no Nihongo 1</h2>
+    
+    </a>
+
+    <!-- 📌 TEKS DI BAWAH -->
+    <p style="margin-top:8px; font-size:25px; opacity:0.7;">
+        🛑 MASIH DALAM PENGERJAAN
+    </p>
 
 </section>
     
@@ -4639,6 +4654,30 @@ body.light{
     </p>
 
 </div>
+
+</section>
+
+    <!-- MATERI TEST -->
+<section id="materitest">
+
+    <h2>📚 Materi Test</h2>
+
+    <div class="testMenu">
+
+        <button onclick="startKanjiTest()">
+    漢字 Kanji Test
+    </button>
+    
+    </a>
+
+    <!-- 📌 TEKS DI BAWAH -->
+    <p style="margin-top:8px; font-size:25px; opacity:0.7;">
+        🛑 MASIH DALAM PENGERJAAN
+    </p>
+    
+    </div>
+
+    <div id="testArea"></div>
 
 </section>
 
@@ -7617,6 +7656,11 @@ function updateCalendar(){
         calendar.appendChild(dayBox);
     }
 }
+
+    <!-- ===================================== -->
+    <!-- MATERI TESTI -->
+    <!-- ===================================== -->
+
 
     <!-- ===================================== -->
     <!-- BUAT MUNCULIN NOTIFIKASI UPDATEI -->
