@@ -7697,7 +7697,7 @@ function showUpdatePopup(message){
             min-width:250px;
         ">
 
-            🔔 Update Baru Versi! <br><br>
+            🔔 Update Baru Versi 1.0.9! <br><br>
             ${message}
 
             <br><br>
@@ -7812,7 +7812,42 @@ function submitBug(){
 
 function showBugs(){
 
+    let bugs = JSON.parse(localStorage.getItem("function submitBug(){
+
+    const text = document.getElementById("bugText").value;
+
+    if(!text.trim()){
+        alert("Isi dulu laporannya!");
+        return;
+    }
+
+    emailjs.send("service_85eu9g7", "template_dncr5nc", {
+        message: text,
+        time: new Date().toLocaleString()
+    }).then(() => {
+
+        alert("🐞 Laporan terkirim ke email!\nHarap untuk tidak spam ya!");
+
+        document.getElementById("bugText").value = "";
+
+    }).catch(err => {
+        console.log(err);
+        alert("Gagal kirim laporan");
+    });
+
+}
+
+function showBugs(){
+
     let bugs = JSON.parse(localStorage.getItem("bugReports")) || [];
+
+    console.log("🐞 BUG REPORTS:");
+
+    bugs.forEach((b, i) => {
+        console.log(i+1, b.message, b.time);
+    });
+
+}Reports")) || [];
 
     console.log("🐞 BUG REPORTS:");
 
@@ -7872,7 +7907,7 @@ window.addEventListener("load", () => {
     const youkoso = document.getElementById("youkosoSound");
     const music = document.getElementById("bgMusic");
 
-    // 🔓 unlock audio diam-diam (WAJIB)
+    // 🔓 unlock audio diam-diam
     const unlock = async () => {
         try {
 
